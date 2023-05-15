@@ -16,6 +16,7 @@
 		1C9EB1652A10A57A00326D10 /* iOSCWUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1642A10A57A00326D10 /* iOSCWUITests.swift */; };
 		1C9EB1672A10A57A00326D10 /* iOSCWUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1662A10A57A00326D10 /* iOSCWUITestsLaunchTests.swift */; };
 		1C9EB1742A111B6900326D10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1732A111B6900326D10 /* LoginViewController.swift */; };
+		1C9EB1762A11B53B00326D10 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1752A11B53B00326D10 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1C9EB1642A10A57A00326D10 /* iOSCWUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCWUITests.swift; sourceTree = "<group>"; };
 		1C9EB1662A10A57A00326D10 /* iOSCWUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCWUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1C9EB1732A111B6900326D10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1C9EB1752A11B53B00326D10 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1C9EB14E2A10A57A00326D10 /* LaunchScreen.storyboard */,
 				1C9EB1512A10A57A00326D10 /* Info.plist */,
 				1C9EB1732A111B6900326D10 /* LoginViewController.swift */,
+				1C9EB1752A11B53B00326D10 /* SignupViewController.swift */,
 			);
 			path = iOSCW;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				1C9EB1742A111B6900326D10 /* LoginViewController.swift in Sources */,
 				1C9EB1482A10A57900326D10 /* ViewController.swift in Sources */,
+				1C9EB1762A11B53B00326D10 /* SignupViewController.swift in Sources */,
 				1C9EB1442A10A57900326D10 /* AppDelegate.swift in Sources */,
 				1C9EB1462A10A57900326D10 /* SceneDelegate.swift in Sources */,
 			);
