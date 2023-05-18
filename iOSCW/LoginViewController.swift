@@ -6,19 +6,22 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
-    let UsertextField : UITextField = {
-        let UsertextField = UITextField()
-        UsertextField.layer.cornerRadius = 20
-        //UsertextField.placeholder = "Enter Username or Email"
-        UsertextField.translatesAutoresizingMaskIntoConstraints = false
-        UsertextField.borderStyle = .roundedRect
-        UsertextField.textAlignment = .left
-        UsertextField.textColor = .black
-        UsertextField.font = UIFont.systemFont(ofSize: 16)
-        return UsertextField
+    let EmailtextField : UITextField = {
+        let EmailtextField = UITextField()
+        EmailtextField.layer.cornerRadius = 20
+        //EmailtextField.placeholder = "Enter Username or Email"
+        EmailtextField.translatesAutoresizingMaskIntoConstraints = false
+        EmailtextField.borderStyle = .roundedRect
+        EmailtextField.backgroundColor = .systemFill
+        EmailtextField.textAlignment = .left
+        EmailtextField.textColor = .white
+        EmailtextField.autocapitalizationType = .none
+        EmailtextField.font = UIFont.systemFont(ofSize: 16)
+        return EmailtextField
     }()
     
     let PasstextField : UITextField = {
@@ -27,8 +30,10 @@ class LoginViewController: UIViewController {
         //PasstextField.placeholder = "Enter Password"
         PasstextField.translatesAutoresizingMaskIntoConstraints = false
         PasstextField.borderStyle = .roundedRect
+        PasstextField.isSecureTextEntry = true
         PasstextField.textAlignment = .left
-        PasstextField.textColor = .black
+        PasstextField.textColor = .white
+        PasstextField.backgroundColor = .systemFill
         PasstextField.font = UIFont.systemFont(ofSize: 16)
         return PasstextField
     }()
@@ -38,16 +43,16 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.text = "Login"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.font = UIFont(name: "ArialRoundedMTBold", size: 30)
         return label
     }()
     
     let userlabel : UILabel = {
         let userlabel = UILabel()
-        userlabel.text = "Username : "
+        userlabel.text = "Email : "
         userlabel.translatesAutoresizingMaskIntoConstraints = false
-        userlabel.textColor = UIColor.black
+        userlabel.textColor = UIColor.white
         userlabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
         return userlabel
     }()
@@ -56,47 +61,22 @@ class LoginViewController: UIViewController {
         let passlabel = UILabel()
         passlabel.text = "Password : "
         passlabel.translatesAutoresizingMaskIntoConstraints = false
-        passlabel.textColor = UIColor.black
+        passlabel.textColor = UIColor.white
         passlabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
         return passlabel
     }()
     
-    let forgotlabel : UILabel = {
-        let forgotlabel = UILabel()
-        forgotlabel.text = "Forgot Your Password? "
-        forgotlabel.translatesAutoresizingMaskIntoConstraints = false
-        forgotlabel.textColor = UIColor.black
-        forgotlabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
-        return forgotlabel
-    }()
-    
-    let dhavelabel : UILabel = {
-        let dhavelabel = UILabel()
-        dhavelabel.text = "Don't have an account?"
-        dhavelabel.translatesAutoresizingMaskIntoConstraints = false
-        dhavelabel.textColor = UIColor.black
-        dhavelabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
-        return dhavelabel
-    }()
-    
-    let signuplabel : UILabel = {
-        let signuplabel = UILabel()
-        signuplabel.text = "SignUp"
-        signuplabel.translatesAutoresizingMaskIntoConstraints = false
-        signuplabel.textColor = UIColor.magenta
-        signuplabel.font = UIFont(name: "ArialRoundedMTBold", size: 17)
-        return signuplabel
-    }()
     
     let roundedView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 50
-        view.backgroundColor = .white
+        view.backgroundColor = .systemFill
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = false
         view.layer.shadowOffset = CGSize(width: -1, height: 1)
         view.layer.shadowRadius = 5
         view.layer.shadowOpacity = 0.6
+        
         return view
     }()
     
@@ -107,9 +87,9 @@ class LoginViewController: UIViewController {
         button.layer.borderColor = UIColor.magenta.cgColor
         button.layer.borderWidth = 4
         button.translatesAutoresizingMaskIntoConstraints = false
+      
         button.setTitle("Login", for: .normal)
         button.tintColor = .white
-        //button.addTarget(self, action: #selector(gotonexAction), for: .touchUpInside)
         return button
     }()
     
@@ -126,26 +106,70 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         view.backgroundColor = .black
         view.addSubview(roundedView)
         view.addSubview(someImageView)
-        roundedView.addSubview(UsertextField)
+        roundedView.addSubview(EmailtextField)
         roundedView.addSubview(PasstextField)
-        roundedView.addSubview(button)
+        //roundedView.addSubview(button)
         roundedView.addSubview(label)
         roundedView.addSubview(userlabel)
         roundedView.addSubview(passlabel)
-        roundedView.addSubview(forgotlabel)
-        roundedView.addSubview(signuplabel)
-        roundedView.addSubview(dhavelabel)
+
         setConstraints()
         someImageViewConstraints()
+        
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
-//    @objc func gotonexAction(){
-//        let nextScreen = DsahBoardViewController()
-//        navigationController?.pushViewController(nextScreen, animated: true)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        EmailtextField.becomeFirstResponder()
+    }
+     
+    @objc private func didTapButton(){
+        guard let email = EmailtextField.text, !email.isEmpty,
+              let password = PasstextField.text, !password.isEmpty else {
+            print("missing field data")
+            return
+        }
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, link: password, completion: {[weak self] result, error in
+            guard let strongSelf = self else{
+                return
+            }
+            guard error == nil else{
+                strongSelf.showCreateAccount(email: email, password: password)
+            return
+            }
+           print("signed in")
+        
+            //write code to go to next page
+            
+        })
+        
+        func showCreateAccount(email: String, password: String){
+            let alert = UIAlertController(title: "Create Account", message: "Would you like to create an account?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default,handler: {_ in
+                
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {[weak self] result, error in
+                    guard let strongSelf = self else{
+                        return
+                    }
+                    guard error == nil else{
+                    print("Account creation failed")
+                    return
+                    }
+                    print("signed in")
+                    //write code to go to next page
+                })
+                
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: {_ in}))
+            present(alert, animated: true)
+        }
+    }
     
     func setConstraints(){
         
@@ -155,19 +179,19 @@ class LoginViewController: UIViewController {
                                     multiplier: 1),
                     roundedView.heightAnchor
                         .constraint(equalTo: view.heightAnchor,
-                                    multiplier: 0.7),
+                                    multiplier: 0.9),
                     roundedView.topAnchor
-                        .constraint(equalTo: view.topAnchor, constant: 300),
+                        .constraint(equalTo: view.topAnchor, constant: 230),
                    // roundedView.centerYAnchor
                        // .constraint(equalTo: view.centerYAnchor)
                 ])
                 
         NSLayoutConstraint.activate([
-                     button.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 330),
-                     button.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
+            button.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 330),
+            button.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
 
-                     button.heightAnchor.constraint(equalToConstant: 50),
-                     button.widthAnchor.constraint(equalToConstant: 200)
+            button.heightAnchor.constraint(equalToConstant: 50),
+            button.widthAnchor.constraint(equalToConstant: 200)
         ])
         
         
@@ -178,11 +202,11 @@ class LoginViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            UsertextField.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 150),
-            UsertextField.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
+            EmailtextField.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 150),
+            EmailtextField.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
 
-            UsertextField.heightAnchor.constraint(equalToConstant: 40),
-            UsertextField.widthAnchor.constraint(equalToConstant: 250)
+            EmailtextField.heightAnchor.constraint(equalToConstant: 40),
+            EmailtextField.widthAnchor.constraint(equalToConstant: 250)
         ])
         
         NSLayoutConstraint.activate([
@@ -204,26 +228,12 @@ class LoginViewController: UIViewController {
                 .constraint(equalTo: roundedView.leftAnchor, constant: 30),
             passlabel.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 220)
         ])
-        
-        NSLayoutConstraint.activate([
-            forgotlabel.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
-            forgotlabel.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 400)
-        ])
-        
-        NSLayoutConstraint.activate([
-            signuplabel.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
-            signuplabel.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 490)
-        ])
-        
-        NSLayoutConstraint.activate([
-            dhavelabel.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor),
-            dhavelabel.topAnchor.constraint(equalTo: roundedView.topAnchor, constant: 470)
-        ])
+       
     }
     
     func someImageViewConstraints() {
-            someImageView.widthAnchor.constraint(equalToConstant: 500).isActive = true
-            someImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+            someImageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+            someImageView.heightAnchor.constraint(equalToConstant: 230).isActive = true
             someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
 }

@@ -16,7 +16,13 @@
 		1C9EB1652A10A57A00326D10 /* iOSCWUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1642A10A57A00326D10 /* iOSCWUITests.swift */; };
 		1C9EB1672A10A57A00326D10 /* iOSCWUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1662A10A57A00326D10 /* iOSCWUITestsLaunchTests.swift */; };
 		1C9EB1742A111B6900326D10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1732A111B6900326D10 /* LoginViewController.swift */; };
-		1C9EB1762A11B53B00326D10 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1752A11B53B00326D10 /* SignupViewController.swift */; };
+		1C9EB1782A12598100326D10 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1772A12598100326D10 /* DashboardViewController.swift */; };
+		1C9EB17A2A13AD8800326D10 /* WorkoutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1792A13AD8800326D10 /* WorkoutListViewController.swift */; };
+		1C9EB17C2A13DC4C00326D10 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB17B2A13DC4C00326D10 /* BMIViewController.swift */; };
+		1C9EB2012A15482700326D10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C9EB2002A15482700326D10 /* GoogleService-Info.plist */; };
+		1C9EB2042A154E4E00326D10 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9EB2032A154E4E00326D10 /* FirebaseAnalytics */; };
+		1C9EB2062A154E4E00326D10 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9EB2052A154E4E00326D10 /* FirebaseAnalyticsSwift */; };
+		1C9EB2082A154E4E00326D10 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9EB2072A154E4E00326D10 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +56,10 @@
 		1C9EB1642A10A57A00326D10 /* iOSCWUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCWUITests.swift; sourceTree = "<group>"; };
 		1C9EB1662A10A57A00326D10 /* iOSCWUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSCWUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1C9EB1732A111B6900326D10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		1C9EB1752A11B53B00326D10 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		1C9EB1772A12598100326D10 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		1C9EB1792A13AD8800326D10 /* WorkoutListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListViewController.swift; sourceTree = "<group>"; };
+		1C9EB17B2A13DC4C00326D10 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
+		1C9EB2002A15482700326D10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9EB2062A154E4E00326D10 /* FirebaseAnalyticsSwift in Frameworks */,
+				1C9EB2082A154E4E00326D10 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				1C9EB2042A154E4E00326D10 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,13 +114,16 @@
 			isa = PBXGroup;
 			children = (
 				1C9EB1432A10A57900326D10 /* AppDelegate.swift */,
+				1C9EB2002A15482700326D10 /* GoogleService-Info.plist */,
 				1C9EB1452A10A57900326D10 /* SceneDelegate.swift */,
 				1C9EB1472A10A57900326D10 /* ViewController.swift */,
 				1C9EB14C2A10A57A00326D10 /* Assets.xcassets */,
 				1C9EB14E2A10A57A00326D10 /* LaunchScreen.storyboard */,
 				1C9EB1512A10A57A00326D10 /* Info.plist */,
 				1C9EB1732A111B6900326D10 /* LoginViewController.swift */,
-				1C9EB1752A11B53B00326D10 /* SignupViewController.swift */,
+				1C9EB1772A12598100326D10 /* DashboardViewController.swift */,
+				1C9EB1792A13AD8800326D10 /* WorkoutListViewController.swift */,
+				1C9EB17B2A13DC4C00326D10 /* BMIViewController.swift */,
 			);
 			path = iOSCW;
 			sourceTree = "<group>";
@@ -140,12 +155,18 @@
 				1C9EB13C2A10A57900326D10 /* Sources */,
 				1C9EB13D2A10A57900326D10 /* Frameworks */,
 				1C9EB13E2A10A57900326D10 /* Resources */,
+				1C9EB2092A15586D00326D10 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = iOSCW;
+			packageProductDependencies = (
+				1C9EB2032A154E4E00326D10 /* FirebaseAnalytics */,
+				1C9EB2052A154E4E00326D10 /* FirebaseAnalyticsSwift */,
+				1C9EB2072A154E4E00326D10 /* FirebaseAnalyticsWithoutAdIdSupport */,
+			);
 			productName = iOSCW;
 			productReference = 1C9EB1402A10A57900326D10 /* iOSCW.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 1C9EB1372A10A57900326D10;
+			packageReferences = (
+				1C9EB2022A154E4E00326D10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1C9EB1412A10A57900326D10 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +260,7 @@
 			files = (
 				1C9EB1502A10A57A00326D10 /* LaunchScreen.storyboard in Resources */,
 				1C9EB14D2A10A57A00326D10 /* Assets.xcassets in Resources */,
+				1C9EB2012A15482700326D10 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,14 +280,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1C9EB2092A15586D00326D10 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C9EB13C2A10A57900326D10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1C9EB1742A111B6900326D10 /* LoginViewController.swift in Sources */,
+				1C9EB17C2A13DC4C00326D10 /* BMIViewController.swift in Sources */,
+				1C9EB17A2A13AD8800326D10 /* WorkoutListViewController.swift in Sources */,
+				1C9EB1782A12598100326D10 /* DashboardViewController.swift in Sources */,
 				1C9EB1482A10A57900326D10 /* ViewController.swift in Sources */,
-				1C9EB1762A11B53B00326D10 /* SignupViewController.swift in Sources */,
 				1C9EB1442A10A57900326D10 /* AppDelegate.swift in Sources */,
 				1C9EB1462A10A57900326D10 /* SceneDelegate.swift in Sources */,
 			);
@@ -590,6 +639,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1C9EB2022A154E4E00326D10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 9.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C9EB2032A154E4E00326D10 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C9EB2022A154E4E00326D10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		1C9EB2052A154E4E00326D10 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C9EB2022A154E4E00326D10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		1C9EB2072A154E4E00326D10 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C9EB2022A154E4E00326D10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1C9EB1382A10A57900326D10 /* Project object */;
 }
