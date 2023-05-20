@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         
         view.addSubview(someImageView)
         view.addSubview(logoView)
-        view.addSubview(button)
+        view.addSubview(button) // Add button as subview of the common ancestor view
         view.addSubview(label)
         
         setButtonConstraints()
@@ -80,10 +80,10 @@ class ViewController: UIViewController {
     }
     
     func someImageViewConstraints() {
-            someImageView.widthAnchor.constraint(equalToConstant: 1100).isActive = true
-            someImageView.heightAnchor.constraint(equalToConstant: 850).isActive = true
-            someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        }
+        someImageView.widthAnchor.constraint(equalToConstant: 1100).isActive = true
+        someImageView.heightAnchor.constraint(equalToConstant: 850).isActive = true
+        someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
     
     func logoViewConstraints() {
         NSLayoutConstraint.activate([
@@ -103,5 +103,3 @@ class ViewController: UIViewController {
         ])
     }
 }
-
-

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>805771667511-l9kpir4t8v4lo45ma3elrr4epm6sivof.apps.googleusercontent.com</string>
+	<string>583281138905-ve7obfg1cit2j7m3pbq3rqp1b6458h98.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.805771667511-l9kpir4t8v4lo45ma3elrr4epm6sivof</string>
+	<string>com.googleusercontent.apps.583281138905-ve7obfg1cit2j7m3pbq3rqp1b6458h98</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAr5_UvuMY8Cssy6N4Zo4qW6wOrRpcCnyQ</string>
+	<string>AIzaSyDdHoOz91mZqa5jP7sV-MOIdMieUsX_n7A</string>
 	<key>GCM_SENDER_ID</key>
-	<string>805771667511</string>
+	<string>583281138905</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>niketha.iOSCW</string>
 	<key>PROJECT_ID</key>
-	<string>ioscwdb</string>
+	<string>ioscwdb-ffbd6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ioscwdb.appspot.com</string>
+	<string>ioscwdb-ffbd6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:805771667511:ios:7d83044d98b5da6934b7b2</string>
+	<string>1:583281138905:ios:319f201bc6ed9005d932c8</string>
 </dict>
 </plist>
