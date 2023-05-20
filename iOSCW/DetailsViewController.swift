@@ -6,9 +6,20 @@
 //
 
 import UIKit
+import QuartzCore
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1 // Display one column of numbers
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numbers.count // Total number of rows
+    }
+    
+    
+    
     let label : UILabel = {
         let label = UILabel()
         label.text = "Start Your Fitness"
@@ -92,7 +103,7 @@ class DetailsViewController: UIViewController {
         malebutton.setTitle("Male", for: .normal)
         malebutton.semanticContentAttribute = .forceRightToLeft
         malebutton.tintColor = .white
-        malebutton.addTarget(self, action: #selector(femaleTapAction), for: .touchUpInside)
+        malebutton.addTarget(self, action: #selector(maleTapAction), for: .touchUpInside)
         return malebutton
     }()
     
@@ -106,7 +117,7 @@ class DetailsViewController: UIViewController {
         femalebutton.setTitle("Female", for: .normal)
         femalebutton.semanticContentAttribute = .forceRightToLeft
         femalebutton.tintColor = .white
-        femalebutton.addTarget(self, action: #selector(gotonexAction), for: .touchUpInside)
+        femalebutton.addTarget(self, action: #selector(femaleTapAction), for: .touchUpInside)
         return femalebutton
     }()
     
@@ -178,7 +189,8 @@ class DetailsViewController: UIViewController {
         ])
     }
     
-    
+    private var numberPicker: UIPickerView!
+    private var numbers: [Int] = Array(0...100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,8 +210,38 @@ class DetailsViewController: UIViewController {
         setConstraints()
         someImageViewConstraints()
         
-        // Rest of your code
+        // Create and configure the number picker
+                numberPicker = UIPickerView()
+                numberPicker.dataSource = self
+                numberPicker.delegate = self
+        numberPicker.tintColor = .white
+        numberPicker.layer.cornerRadius = 25
+        numberPicker.backgroundColor = UIColor.systemFill // Change the background color
+        numberPicker.setValue(UIColor.white, forKey: "textColor")
+                numberPicker.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(numberPicker)
+                
+                // Set up constraints for the number picker
+                NSLayoutConstraint.activate([
+                    numberPicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    numberPicker.topAnchor.constraint(equalTo: view.topAnchor, constant: 480),
+                    numberPicker.heightAnchor.constraint(equalToConstant: 100),
+                ])
     }
+    
+        
+
+        // MARK: - UIPickerViewDelegate
+
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return "\(numbers[row])" // Display number as row title
+        }
+
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            let selectedNumber = numbers[row]
+            print("Selected number: \(selectedNumber)")
+        }
+   
     
     @objc func maleTapAction(_ sender: UIButton) {
 
@@ -230,7 +272,7 @@ class DetailsViewController: UIViewController {
                                         multiplier: 0.9),
                         roundedView.heightAnchor
                             .constraint(equalTo: view.heightAnchor,
-                                        multiplier: 0.4),
+                                        multiplier: 0.5),
                         roundedView.centerXAnchor
                             .constraint(equalTo: view.centerXAnchor),
                         roundedView.centerYAnchor

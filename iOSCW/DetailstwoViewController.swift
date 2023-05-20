@@ -6,8 +6,19 @@
 //
 
 import UIKit
+import QuartzCore
 
-class DetailstwoViewController: UIViewController {
+class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1 // Display one column of numbers
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numbers.count // Total number of rows
+    }
+    
+    
 
     let label : UILabel = {
         let label = UILabel()
@@ -38,7 +49,7 @@ class DetailstwoViewController: UIViewController {
     
     let genderlabel : UILabel = {
         let genderlabel = UILabel()
-        genderlabel.text = "Gender :"
+        genderlabel.text = "Height(cm) :"
         genderlabel.translatesAutoresizingMaskIntoConstraints = false
         genderlabel.textColor = UIColor.white
         genderlabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
@@ -47,7 +58,7 @@ class DetailstwoViewController: UIViewController {
     
     let agelabel : UILabel = {
         let agelabel = UILabel()
-        agelabel.text = "Age :"
+        agelabel.text = "Weight(kg) :"
         agelabel.translatesAutoresizingMaskIntoConstraints = false
         agelabel.textColor = UIColor.white
         agelabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
@@ -148,6 +159,10 @@ class DetailstwoViewController: UIViewController {
             ])
     }
     
+    private var heightPicker: UIPickerView!
+    private var weightPicker: UIPickerView!
+    private var numbers: [Int] = Array(0...500)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -165,6 +180,55 @@ class DetailstwoViewController: UIViewController {
         setConstraints()
         someImageViewConstraints()
         
+        
+        // Create and configure the number picker
+                heightPicker = UIPickerView()
+                heightPicker.dataSource = self
+                heightPicker.delegate = self
+        heightPicker.tintColor = .white
+        heightPicker.layer.cornerRadius = 25
+        heightPicker.backgroundColor = UIColor.systemFill // Change the background color
+        heightPicker.setValue(UIColor.white, forKey: "textColor")
+                heightPicker.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(heightPicker)
+                
+                // Set up constraints for the number picker
+                NSLayoutConstraint.activate([
+                    heightPicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    heightPicker.topAnchor.constraint(equalTo: view.topAnchor, constant: 330),
+                    heightPicker.heightAnchor.constraint(equalToConstant: 100),
+                ])
+        
+        
+        // Create and configure the number picker
+                weightPicker = UIPickerView()
+                weightPicker.dataSource = self
+                weightPicker.delegate = self
+        weightPicker.tintColor = .white
+        weightPicker.layer.cornerRadius = 25
+        weightPicker.backgroundColor = UIColor.systemFill // Change the background color
+        weightPicker.setValue(UIColor.white, forKey: "textColor")
+                weightPicker.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(weightPicker)
+                
+                // Set up constraints for the number picker
+                NSLayoutConstraint.activate([
+                    weightPicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    weightPicker.topAnchor.constraint(equalTo: view.topAnchor, constant: 480),
+                    weightPicker.heightAnchor.constraint(equalToConstant: 100),
+                ])
+        
+    }
+    
+    // MARK: - UIPickerViewDelegate
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(numbers[row])" // Display number as row title
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedNumber = numbers[row]
+        print("Selected number: \(selectedNumber)")
     }
     
     @objc func gotonexAction(){
@@ -225,7 +289,7 @@ class DetailstwoViewController: UIViewController {
         NSLayoutConstraint.activate([
             agelabel.leftAnchor
                 .constraint(equalTo: view.leftAnchor, constant: 50),
-            agelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 430)
+            agelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 450)
         ])
        
     }

@@ -43,7 +43,7 @@ class DetailsthreeViewController: UIViewController {
         legbutton.layer.borderColor = UIColor.magenta.cgColor
         legbutton.layer.borderWidth = 1
         legbutton.translatesAutoresizingMaskIntoConstraints = false
-        legbutton.setTitle("Leg", for: .normal)
+        legbutton.setTitle("weight loss", for: .normal)
         legbutton.semanticContentAttribute = .forceRightToLeft
         legbutton.tintColor = .white
         legbutton.addTarget(self, action: #selector(legTapAction), for: .touchUpInside)
@@ -57,7 +57,7 @@ class DetailsthreeViewController: UIViewController {
         armbutton.layer.borderColor = UIColor.magenta.cgColor
         armbutton.layer.borderWidth = 1
         armbutton.translatesAutoresizingMaskIntoConstraints = false
-        armbutton.setTitle("Arm", for: .normal)
+        armbutton.setTitle("muscle building", for: .normal)
         armbutton.semanticContentAttribute = .forceRightToLeft
         armbutton.tintColor = .white
         armbutton.addTarget(self, action: #selector(armTapAction), for: .touchUpInside)
@@ -71,7 +71,7 @@ class DetailsthreeViewController: UIViewController {
         absbutton.layer.borderColor = UIColor.magenta.cgColor
         absbutton.layer.borderWidth = 1
         absbutton.translatesAutoresizingMaskIntoConstraints = false
-        absbutton.setTitle("Abs", for: .normal)
+        absbutton.setTitle("Maintain a balance", for: .normal)
         absbutton.semanticContentAttribute = .forceRightToLeft
         absbutton.tintColor = .white
         absbutton.addTarget(self, action: #selector(absTapAction), for: .touchUpInside)
