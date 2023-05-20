@@ -387,7 +387,11 @@ class LoginViewController: UIViewController {
                     return
                 }
                 print("signed in")
-                // write code to go to the next page
+                
+                //go to next page code
+                
+//                let nextScreen = DetailsViewController()
+//                navigationController?.pushViewController(nextScreen, animated: true)
             })
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in }))
