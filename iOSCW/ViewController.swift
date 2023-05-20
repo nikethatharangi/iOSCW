@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    //var tabController: TabController?
+    var tabController: TabController?
     
     let someImageView: UIImageView = {
         let theImageView = UIImageView()

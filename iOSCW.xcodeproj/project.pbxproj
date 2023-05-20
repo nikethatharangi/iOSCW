@@ -15,6 +15,10 @@
 		1C43218E2A18F79000801906 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43218D2A18F79000801906 /* DetailsViewController.swift */; };
 		1C4321902A18F7BF00801906 /* DetailstwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43218F2A18F7BF00801906 /* DetailstwoViewController.swift */; };
 		1C4321922A18F88A00801906 /* DetailsthreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4321912A18F88A00801906 /* DetailsthreeViewController.swift */; };
+		1C4321962A18FC0800801906 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4321952A18FC0800801906 /* TabController.swift */; };
+		1C4321982A18FE9300801906 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4321972A18FE9300801906 /* WorkoutViewController.swift */; };
+		1C43219A2A18FEBF00801906 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4321992A18FEBF00801906 /* ReminderViewController.swift */; };
+		1C43219C2A18FEDA00801906 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43219B2A18FEDA00801906 /* AccountViewController.swift */; };
 		1C9EB1442A10A57900326D10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1432A10A57900326D10 /* AppDelegate.swift */; };
 		1C9EB1462A10A57900326D10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1452A10A57900326D10 /* SceneDelegate.swift */; };
 		1C9EB1482A10A57900326D10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1472A10A57900326D10 /* ViewController.swift */; };
@@ -51,6 +55,10 @@
 		1C43218D2A18F79000801906 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1C43218F2A18F7BF00801906 /* DetailstwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailstwoViewController.swift; sourceTree = "<group>"; };
 		1C4321912A18F88A00801906 /* DetailsthreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsthreeViewController.swift; sourceTree = "<group>"; };
+		1C4321952A18FC0800801906 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		1C4321972A18FE9300801906 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		1C4321992A18FEBF00801906 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		1C43219B2A18FEDA00801906 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1C9EB1402A10A57900326D10 /* iOSCW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9EB1432A10A57900326D10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C9EB1452A10A57900326D10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +143,10 @@
 				1C43218D2A18F79000801906 /* DetailsViewController.swift */,
 				1C43218F2A18F7BF00801906 /* DetailstwoViewController.swift */,
 				1C4321912A18F88A00801906 /* DetailsthreeViewController.swift */,
+				1C4321952A18FC0800801906 /* TabController.swift */,
+				1C4321972A18FE9300801906 /* WorkoutViewController.swift */,
+				1C4321992A18FEBF00801906 /* ReminderViewController.swift */,
+				1C43219B2A18FEDA00801906 /* AccountViewController.swift */,
 			);
 			path = iOSCW;
 			sourceTree = "<group>";
@@ -319,10 +331,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4321982A18FE9300801906 /* WorkoutViewController.swift in Sources */,
 				1C9EB1742A111B6900326D10 /* LoginViewController.swift in Sources */,
+				1C43219C2A18FEDA00801906 /* AccountViewController.swift in Sources */,
 				1C9EB17C2A13DC4C00326D10 /* BMIViewController.swift in Sources */,
 				1C9EB17A2A13AD8800326D10 /* WorkoutListViewController.swift in Sources */,
+				1C43219A2A18FEBF00801906 /* ReminderViewController.swift in Sources */,
 				1C43218E2A18F79000801906 /* DetailsViewController.swift in Sources */,
+				1C4321962A18FC0800801906 /* TabController.swift in Sources */,
 				1C4321902A18F7BF00801906 /* DetailstwoViewController.swift in Sources */,
 				1C9EB1782A12598100326D10 /* DashboardViewController.swift in Sources */,
 				1C4321922A18F88A00801906 /* DetailsthreeViewController.swift in Sources */,

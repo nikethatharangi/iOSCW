@@ -200,8 +200,8 @@ class DetailsthreeViewController: UIViewController {
 }
     
     @objc func gotonexAction(){
-        //let nextScreen = TabController()
-        //navigationController?.pushViewController(nextScreen, animated: true)
+        let nextScreen = TabController()
+        navigationController?.pushViewController(nextScreen, animated: true)
     }
    
     
