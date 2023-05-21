@@ -8,21 +8,36 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-
     let roundedView: UIView = {
            let view = UIView()
            view.layer.cornerRadius = 20
-           //view.backgroundColor = .white
+           view.backgroundColor = .systemFill
+        
+        //view.alpha = CGFloat(0.2)
            view.translatesAutoresizingMaskIntoConstraints = false
         
            return view
        }()
     
+    let showbutton : UIButton = {
+        let showbutton = UIButton()
+        showbutton.backgroundColor = .black
+        showbutton.layer.cornerRadius = 20
+        showbutton.layer.borderColor = UIColor.magenta.cgColor
+        showbutton.layer.borderWidth = 1
+        showbutton.translatesAutoresizingMaskIntoConstraints = false
+        showbutton.setTitle("Show", for: .normal)
+        showbutton.semanticContentAttribute = .forceRightToLeft
+        showbutton.tintColor = .white
+        showbutton.addTarget(self, action: #selector(showTapAction), for: .touchUpInside)
+        return showbutton
+    }()
+    
     let catoneroundedView: UIView = {
         let catoneroundedView = UIView()
-        catoneroundedView.layer.cornerRadius = 20
-        catoneroundedView.backgroundColor = .white
-        catoneroundedView.alpha = CGFloat(0.2)
+        catoneroundedView.layer.cornerRadius = 25
+        catoneroundedView.backgroundColor = .systemFill
+        //catoneroundedView.alpha = CGFloat(0.2)
 //        catoneroundedView.layer.borderColor = UIColor.white.cgColor
 //        catoneroundedView.layer.borderWidth = 1
         catoneroundedView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,34 +45,25 @@ class DashboardViewController: UIViewController {
         return catoneroundedView
        }()
     
-    let cattworoundedView: UIView = {
-        let cattworoundedView = UIView()
-        cattworoundedView.layer.cornerRadius = 20
-        cattworoundedView.backgroundColor = .white
-        cattworoundedView.alpha = CGFloat(0.2)
-//        cattworoundedView.layer.borderColor = UIColor.white.cgColor
-//        cattworoundedView.layer.borderWidth = 1
-        cattworoundedView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return cattworoundedView
-       }()
-    
-    let catthreeroundedView: UIView = {
-        let catthreeroundedView = UIView()
-        catthreeroundedView.layer.cornerRadius = 20
-        catthreeroundedView.backgroundColor = .white
-        catthreeroundedView.alpha = CGFloat(0.2)
-//        catthreeroundedView.layer.borderColor = UIColor.white.cgColor
-//        catthreeroundedView.layer.borderWidth = 1
-        catthreeroundedView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return catthreeroundedView
-       }()
+   
     
     let someImageView: UIImageView = {
         let theImageView = UIImageView()
         theImageView.layer.cornerRadius = 50
-        theImageView.image = UIImage(named: "girlweight.jpg")
+        theImageView.image = UIImage(named: "dashboard.png")
+       // theImageView.layer.borderColor = UIColor.white.cgColor
+       // theImageView.layer.borderWidth = 1
+ //       theImageView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+//        theImageView.isOpaque = false
+//        theImageView.alpha = CGFloat(0.5)
+        theImageView.translatesAutoresizingMaskIntoConstraints = false
+        return theImageView
+    }()
+    
+    let ImageView: UIImageView = {
+        let theImageView = UIImageView()
+        theImageView.layer.cornerRadius = 50
+        theImageView.image = UIImage(named: "detailtwo.jpeg")
        // theImageView.layer.borderColor = UIColor.white.cgColor
        // theImageView.layer.borderWidth = 1
  //       theImageView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
@@ -76,36 +82,22 @@ class DashboardViewController: UIViewController {
 //       return gradientLayer
 //    }()
     
-    let checkLabel: UILabel = {
+   
+    let bmiLabel: UILabel = {
            let label = UILabel()
-            label.text = "View"
+            label.text = "Get"
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
             label.font = UIFont(name: "ArialRoundedMTBold", size: 15)
            return label
        }()
     
-    let button : UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemFill
-        button.layer.cornerRadius = 15
-//        button.isOpaque = false
-//        button.alpha = CGFloat(0.5)
-        button.layer.borderColor = UIColor.magenta.cgColor
-        button.layer.borderWidth = 2
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("View", for: .normal)
-        //button.tintColor = .white
-        //button.addTarget(self, action: #selector(gotonexAction), for: .touchUpInside)
-        return button
-    }()
-    
-    let bmiLabel: UILabel = {
+    let hiLabel: UILabel = {
            let label = UILabel()
-            label.text = "Your"
+            label.text = "Hi!"
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.textColor = UIColor.white
-            label.font = UIFont(name: "ArialRoundedMTBold", size: 15)
+            label.textColor = UIColor.magenta
+            label.font = UIFont(name: "ArialRoundedMTBold", size: 21)
            return label
        }()
     
@@ -120,7 +112,7 @@ class DashboardViewController: UIViewController {
     
     let stayLabel: UILabel = {
            let label = UILabel()
-            label.text = "Custom"
+            label.text = "Start"
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
             label.font = UIFont(name: "ArialRoundedMTBold", size: 15)
@@ -129,7 +121,7 @@ class DashboardViewController: UIViewController {
     
     let planLabel: UILabel = {
            let label = UILabel()
-            label.text = "Schedule"
+            label.text = "Today"
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
             label.font = UIFont(name: "ArialRoundedMTBold", size: 15)
@@ -153,15 +145,42 @@ class DashboardViewController: UIViewController {
         label.font = UIFont(name: "ArialRoundedMTBold", size: 30)
         return label
     }()
-   
-    let categoryLabel : UILabel = {
+    
+    let yourLabel : UILabel = {
         let label = UILabel()
-        label.text = "Categories"
+        label.text = "Go to your"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
-        label.font = UIFont(name: "ArialRoundedMTBold", size: 25)
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 20)
         return label
     }()
+    
+    let customLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Custom"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 20)
+        return label
+    }()
+    
+    let scheduleLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Schedule"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 20)
+        return label
+    }()
+   
+//    let categoryLabel : UILabel = {
+//        let label = UILabel()
+//        label.text = "Categories"
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.textColor = UIColor.white
+//        label.font = UIFont(name: "ArialRoundedMTBold", size: 25)
+//        return label
+//    }()
    
 //    private func setupScrollView() {
 //        let margins = view.layoutMarginsGuide
@@ -174,35 +193,39 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(catoneroundedView)
-        view.addSubview(cattworoundedView)
-        view.addSubview(catthreeroundedView)
         
         view.backgroundColor = .black
 //        roundedView.addSubview(titleLabel)
 //        roundedView.layer.addSublayer(gradientLayer)
 //        gradientLayer.frame = roundedView.bounds
-        view.addSubview(categoryLabel)
+        //view.addSubview(categoryLabel)
         view.addSubview(howLabel)
         view.addSubview(shapeLabel)
         view.addSubview(roundedView)
+       
         view.addSubview(catoneroundedView)
-        view.addSubview(cattworoundedView)
-        view.addSubview(catthreeroundedView)
-        someImageView.addSubview(button)
-        view.addSubview(categoryLabel)
+        //view.addSubview(categoryLabel)
         //button.addSubview(checkLabel)
         someImageView.addSubview(bmiLabel)
         someImageView.addSubview(stayLabel)
-        someImageView.addSubview(checkLabel)
+        someImageView.addSubview(hiLabel)
         someImageView.addSubview(planLabel)
         roundedView.addSubview(someImageView)
+        catoneroundedView.addSubview(ImageView)
+        view.addSubview(showbutton)
+        view.addSubview(yourLabel)
+        view.addSubview(customLabel)
+        view.addSubview(scheduleLabel)
         
         setConstraints()
         someImageViewConstraints()
-        
-        
        
+ 
+    }
+    
+    @objc func showTapAction(){
+        let nextScreen = ExerciseListViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
     }
     
     func setConstraints(){
@@ -210,10 +233,10 @@ class DashboardViewController: UIViewController {
         NSLayoutConstraint.activate([
                     roundedView.widthAnchor
                         .constraint(equalTo: view.widthAnchor,
-                                    multiplier: 0.8),
+                                    multiplier: 0.9),
                     roundedView.heightAnchor
                         .constraint(equalTo: view.heightAnchor,
-                                    multiplier: 0.2),
+                                    multiplier: 0.19),
                     roundedView.centerXAnchor
                         .constraint(equalTo: view.centerXAnchor),
                     roundedView.topAnchor
@@ -226,73 +249,56 @@ class DashboardViewController: UIViewController {
                                     multiplier: 0.9),
                     catoneroundedView.heightAnchor
                         .constraint(equalTo: view.heightAnchor,
-                                    multiplier: 0.1),
+                                    multiplier: 0.35),
                     catoneroundedView.centerXAnchor
                         .constraint(equalTo: view.centerXAnchor),
                     catoneroundedView.topAnchor
-                        .constraint(equalTo: view.topAnchor, constant: 520),
+                        .constraint(equalTo: view.topAnchor, constant: 400),
                 ])
         
         NSLayoutConstraint.activate([
-                    cattworoundedView.widthAnchor
-                        .constraint(equalTo: view.widthAnchor,
-                                    multiplier: 0.9),
-                    cattworoundedView.heightAnchor
-                        .constraint(equalTo: view.heightAnchor,
-                                    multiplier: 0.1),
-                    cattworoundedView.centerXAnchor
-                        .constraint(equalTo: view.centerXAnchor),
-                    cattworoundedView.topAnchor
-                        .constraint(equalTo: view.topAnchor, constant: 620),
-                ])
-        
-        NSLayoutConstraint.activate([
-                    catthreeroundedView.widthAnchor
-                        .constraint(equalTo: view.widthAnchor,
-                                    multiplier: 0.9),
-                    catthreeroundedView.heightAnchor
-                        .constraint(equalTo: view.heightAnchor,
-                                    multiplier: 0.1),
-                    catthreeroundedView.centerXAnchor
-                        .constraint(equalTo: view.centerXAnchor),
-                    catthreeroundedView.topAnchor
-                        .constraint(equalTo: view.topAnchor, constant: 720),
-                ])
+                     showbutton.topAnchor.constraint(equalTo: view.topAnchor, constant: 600),
+                     showbutton.leftAnchor
+                         .constraint(equalTo: view.leftAnchor, constant: 230),
+
+                     showbutton.heightAnchor.constraint(equalToConstant: 40),
+                     showbutton.widthAnchor.constraint(equalToConstant: 120)
+        ])
        
         NSLayoutConstraint.activate([
-                    checkLabel.leftAnchor
+                    hiLabel.leftAnchor
                         .constraint(equalTo: roundedView.leftAnchor,
-                                    constant: 20),
-                    checkLabel.topAnchor
+                                    constant: 40),
+                    hiLabel.topAnchor
                         .constraint(equalTo: roundedView.topAnchor,
-                                    constant: 60)
+                                    constant: 20)
                 ])
         
         NSLayoutConstraint.activate([
                     bmiLabel.leftAnchor
                         .constraint(equalTo: roundedView.leftAnchor,
-                                    constant: 20),
+                                    constant: 40),
                     bmiLabel.topAnchor
                         .constraint(equalTo: roundedView.topAnchor,
-                                    constant: 90)
+                                    constant: 70)
                 ])
         
         NSLayoutConstraint.activate([
                     stayLabel.leftAnchor
                         .constraint(equalTo: roundedView.leftAnchor,
-                                    constant: 20),
+                                    constant: 40),
                     stayLabel.topAnchor
                         .constraint(equalTo: roundedView.topAnchor,
-                                    constant: 120)
+                                    constant: 90)
                 ])
         
         NSLayoutConstraint.activate([
                     planLabel.leftAnchor
                         .constraint(equalTo: roundedView.leftAnchor,
-                                    constant: 20),
+                                    constant: 40),
                     planLabel.topAnchor
                         .constraint(equalTo: roundedView.topAnchor,
-                                    constant: 150)
+                                    constant: 110)
                 ])
         
         NSLayoutConstraint.activate([
@@ -314,29 +320,57 @@ class DashboardViewController: UIViewController {
                 ])
         
         NSLayoutConstraint.activate([
-                    categoryLabel.leftAnchor
+                    yourLabel.leftAnchor
                         .constraint(equalTo: view.leftAnchor,
-                                    constant: 30),
-                    categoryLabel.topAnchor
+                                    constant: 230),
+                    yourLabel.topAnchor
                         .constraint(equalTo: view.topAnchor,
                                     constant: 470)
                 ])
-
+        
         NSLayoutConstraint.activate([
-                    button.leftAnchor
-                        .constraint(equalTo: roundedView.leftAnchor,
-                                    constant: 200),
-                    button.topAnchor
-                        .constraint(equalTo: roundedView.topAnchor,
-                                    constant: 30),
-                    button.heightAnchor.constraint(equalToConstant: 30),
-                    button.widthAnchor.constraint(equalToConstant: 100)
+                    customLabel.leftAnchor
+                        .constraint(equalTo: view.leftAnchor,
+                                    constant: 230),
+                    customLabel.topAnchor
+                        .constraint(equalTo: view.topAnchor,
+                                    constant: 500)
                 ])
+        
+        NSLayoutConstraint.activate([
+                    scheduleLabel.leftAnchor
+                        .constraint(equalTo: view.leftAnchor,
+                                    constant: 230),
+                    scheduleLabel.topAnchor
+                        .constraint(equalTo: view.topAnchor,
+                                    constant: 530)
+                ])
+        
+//        NSLayoutConstraint.activate([
+//                    categoryLabel.leftAnchor
+//                        .constraint(equalTo: view.leftAnchor,
+//                                    constant: 30),
+//                    categoryLabel.topAnchor
+//                        .constraint(equalTo: view.topAnchor,
+//                                    constant: 400)
+//                ])
+
+       
     }
     
     func someImageViewConstraints() {
-            someImageView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-            someImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-            someImageView.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor).isActive = true
+            someImageView.widthAnchor.constraint(equalToConstant: 230).isActive = true
+            someImageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+            
+        let leadingSpace: CGFloat = 170 // Adjust the value as needed
+        someImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingSpace).isActive = true
+        }
+    
+    func ImageViewConstraints() {
+            ImageView.widthAnchor.constraint(equalToConstant: 230).isActive = true
+            ImageView.heightAnchor.constraint(equalToConstant: 260).isActive = true
+            
+        let leadingSpace: CGFloat = 180 // Adjust the value as needed
+        ImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingSpace).isActive = true
         }
 }
