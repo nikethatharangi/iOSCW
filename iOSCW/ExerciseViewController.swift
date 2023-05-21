@@ -55,6 +55,15 @@ class ExerciseListViewController: UIViewController {
             view.addSubview(backgroundImage)
             view.sendSubviewToBack(backgroundImage)
         }
+    
+    @objc func cardTapped(_ sender: UITapGestureRecognizer) {
+            guard let cardView = sender.view else { return }
+            guard let index = cardView.tag as Int? else { return }
+            let selectedexercise = exercises[index]
+            
+            let cardDetailsVC = ExerciseDetailsViewController(exercise: selectedexercise)
+            navigationController?.pushViewController(cardDetailsVC, animated: true)
+        }
         
         func addCardViews() {
             let scrollView = UIScrollView(frame: view.bounds)
@@ -67,7 +76,7 @@ class ExerciseListViewController: UIViewController {
             
             // Create a title label
             let titleLabel = UILabel(frame: CGRect(x: 20.0, y: yPosition, width: contentWidth, height: 30.0))
-            titleLabel.text = "All Exercises"
+            titleLabel.text = "Custom Exercises"
             titleLabel.textColor = .white
             titleLabel.font = UIFont.systemFont(ofSize: 34.0, weight: .bold)
             scrollView.addSubview(titleLabel)
@@ -94,14 +103,15 @@ class ExerciseListViewController: UIViewController {
                 cardView.layer.shadowRadius = 2.0
                 cardView.layer.shadowOpacity = 0.2
                 
-                let titleIcon = UIImageView(image: UIImage(systemName: "circle.fill"))
-                titleIcon.tintColor = .magenta
-                titleIcon.frame = CGRect(x: 20.0, y: 25.0, width: 20.0, height: 20.0)
-                cardView.addSubview(titleIcon)
+//                let titleIcon = UIImageView(image: UIImage(systemName: "circle.fill"))
+//                titleIcon.tintColor = .magenta
+//                titleIcon.frame = CGRect(x: 20.0, y: 25.0, width: 20.0, height: 20.0)
+//                cardView.addSubview(titleIcon)
                 
                 let nameLabel = UILabel(frame: CGRect(x: 50.0, y: 20.0, width: cardView.frame.width - 70.0, height: 30.0))
                 nameLabel.text = exercise.name
                 nameLabel.font = UIFont.systemFont(ofSize: 22.0, weight: .semibold)
+                nameLabel.textColor = .white
                 cardView.addSubview(nameLabel)
                 
                 let stackView = UIStackView(frame: CGRect(x: 50.0, y: 55.0, width: cardView.frame.width - 70.0, height: 120.0))
@@ -112,17 +122,20 @@ class ExerciseListViewController: UIViewController {
                 let exerciseDescriptionLabel = UILabel()
                 exerciseDescriptionLabel.text = "Target: \(exercise.target)"
                 exerciseDescriptionLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
+                exerciseDescriptionLabel.textColor = .white
                 stackView.addArrangedSubview(exerciseDescriptionLabel)
                 
                 let equipmentLabel = UILabel()
                 equipmentLabel.text = "Equipment: \(exercise.equipment)"
                 equipmentLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
+                equipmentLabel.textColor = .white
                 stackView.addArrangedSubview(equipmentLabel)
                 
                 let bodyPartLabel = UILabel()
                 bodyPartLabel.text = "Body Part: \(exercise.bodyPart)"
                 bodyPartLabel.font = UIFont.systemFont(ofSize: 22.0, weight: .semibold)
                 bodyPartLabel.textAlignment = .left
+                bodyPartLabel.textColor = .white
                 stackView.addArrangedSubview(bodyPartLabel)
                 
                 cardView.addSubview(stackView)
@@ -140,8 +153,8 @@ class ExerciseListViewController: UIViewController {
                 cardView.addSubview(difficultyIcon)
                 
                 // Add a tap gesture recognizer to the card view
-               // let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cardTapped(_:)))
-               // cardView.addGestureRecognizer(tapGesture)
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cardTapped(_:)))
+                cardView.addGestureRecognizer(tapGesture)
                 cardView.isUserInteractionEnabled = true
                 cardView.tag = index
                 
@@ -287,8 +300,8 @@ class ExerciseDetailsViewController: UIViewController {
         goBackButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         goBackButton.backgroundColor = UIColor.black
         goBackButton.layer.cornerRadius = 8
-        goBackButton.layer.borderWidth = 2
-        goBackButton.layer.borderColor = UIColor.white.cgColor
+        goBackButton.layer.borderWidth = 1
+        goBackButton.layer.borderColor = UIColor.magenta.cgColor
         goBackButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         goBackButton.translatesAutoresizingMaskIntoConstraints = false
         
