@@ -9,7 +9,6 @@ import UIKit
 import QuartzCore
 
 class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // Display one column of numbers
     }
@@ -229,8 +228,7 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 ])
     }
     
-        
-
+   
         // MARK: - UIPickerViewDelegate
 
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -241,6 +239,7 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             let selectedNumber = numbers[row]
             print("Selected number: \(selectedNumber)")
         }
+   
    
     
     @objc func maleTapAction(_ sender: UIButton) {
@@ -263,6 +262,10 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         navigationController?.pushViewController(nextScreen, animated: true)
     }
   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     func setConstraints(){
         
