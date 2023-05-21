@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import WebKit
 
 class ExerciseListViewController: UIViewController {
     
@@ -170,3 +171,145 @@ class ExerciseListViewController: UIViewController {
         
 
     }
+
+
+class ExerciseDetailsViewController: UIViewController {
+    
+    let exercise: Exercise
+    let goBackButton = UIButton()
+    let webView = WKWebView()
+    
+    init(exercise: Exercise) {
+        self.exercise = exercise
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        // Create and configure the background image view
+                let backgroundImage = UIImageView(image: UIImage(named: "exebg"))
+                backgroundImage.contentMode = .scaleAspectFill
+                backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(backgroundImage)
+        NSLayoutConstraint.activate([
+                    backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+                    backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                ])
+        
+        // Create and configure labels
+        let titleLabel = UILabel()
+        titleLabel.text = "Exercise Name:"
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel.textColor = UIColor.label
+        titleLabel.numberOfLines = 0
+        
+        let nameLabel = UILabel()
+        nameLabel.text = exercise.name
+        nameLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        nameLabel.textColor = UIColor.label
+        nameLabel.numberOfLines = 0
+        
+        let difficultyTitleLabel = UILabel()
+        difficultyTitleLabel.text = "Target:"
+        difficultyTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        difficultyTitleLabel.textColor = UIColor.label
+        difficultyTitleLabel.numberOfLines = 0
+        
+        let difficultyLabel = UILabel()
+        difficultyLabel.text = exercise.target
+        difficultyLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        difficultyLabel.textColor = UIColor.secondaryLabel
+        difficultyLabel.numberOfLines = 0
+        
+        let typeTitleLabel = UILabel()
+        typeTitleLabel.text = "Body Part:"
+        typeTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        typeTitleLabel.textColor = UIColor.label
+        typeTitleLabel.numberOfLines = 0
+        
+        let typeLabel = UILabel()
+        typeLabel.text = "\(exercise.bodyPart) "
+        typeLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        typeLabel.textColor = UIColor.secondaryLabel
+        
+        let muscleTitleLabel = UILabel()
+        muscleTitleLabel.text = "Equipment:"
+        muscleTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        muscleTitleLabel.textColor = UIColor.label
+        muscleTitleLabel.numberOfLines = 0
+        
+        let muscleLabel = UILabel()
+        muscleLabel.text = "\(exercise.equipment)"
+        muscleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        muscleLabel.textColor = UIColor.secondaryLabel
+        muscleLabel.numberOfLines = 0
+        
+        // Set up the video view
+        if let gifUrl = URL(string: exercise.gifUrl) {
+            let request = URLRequest(url: gifUrl)
+            webView.load(request)
+            webView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(webView)
+            
+            NSLayoutConstraint.activate([
+                webView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                webView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                webView.widthAnchor.constraint(equalToConstant: 320),
+                webView.heightAnchor.constraint(equalToConstant: 240)
+            ])
+        }
+        
+        // Set up the labels and video view in the stack view
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, nameLabel, difficultyTitleLabel, difficultyLabel, typeTitleLabel, typeLabel, muscleTitleLabel, muscleLabel, webView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 16
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+        
+        // Set up the "Go Back" button
+        goBackButton.setTitle("Go Back", for: .normal)
+        goBackButton.setTitleColor(UIColor.white, for: .normal)
+        goBackButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        goBackButton.backgroundColor = UIColor.black
+        goBackButton.layer.cornerRadius = 8
+        goBackButton.layer.borderWidth = 2
+        goBackButton.layer.borderColor = UIColor.white.cgColor
+        goBackButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        goBackButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(goBackButton)
+        
+        NSLayoutConstraint.activate([
+            goBackButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
+            goBackButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            goBackButton.heightAnchor.constraint(equalToConstant: 50),
+            goBackButton.widthAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    @objc func goBack() {
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        view.window?.layer.add(transition, forKey: kCATransition)
+
+        navigationController?.popViewController(animated: false)
+    }
+}

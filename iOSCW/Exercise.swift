@@ -16,6 +16,7 @@ struct Exercise {
     let equipment: String
     let name: String
     let target: String
+    var gifUrl: String
 
     init(snapshot: DocumentSnapshot) {
         let snapshotValue = snapshot.data()!
@@ -23,5 +24,6 @@ struct Exercise {
         bodyPart = snapshotValue["bodyPart"] as! String
         equipment = snapshotValue["equipment"] as! String
         target = snapshotValue["target"] as! String
+        gifUrl = snapshotValue["gifUrl"] as! String
     }
 }
