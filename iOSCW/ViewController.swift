@@ -20,20 +20,6 @@ class ViewController: UIViewController {
         return theImageView
     }()
     
-    let button : UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 25
-        button.layer.borderColor = UIColor.magenta.cgColor
-        button.layer.borderWidth = 3
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Get Started", for: .normal)
-        button.setImage(UIImage(systemName: "arrow.right"),for: .normal)
-        button.semanticContentAttribute = .forceRightToLeft
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(gotonexAction), for: .touchUpInside)
-        return button
-    }()
     
     let label : UILabel = {
         let label = UILabel()
@@ -57,39 +43,39 @@ class ViewController: UIViewController {
         
         view.addSubview(someImageView)
         view.addSubview(logoView)
-        view.addSubview(button) // Add button as subview of the common ancestor view
+       
         view.addSubview(label)
         
-        setButtonConstraints()
+
         someImageViewConstraints()
         logoViewConstraints()
         AppNameConstraints()
-    }
-    
-    @objc func gotonexAction(){
-        let nextScreen = LoginViewController()
-        navigationController?.pushViewController(nextScreen, animated: true)
-    }
-    
-    func setButtonConstraints(){
-       NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.topAnchor, constant: 725),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.heightAnchor.constraint(equalToConstant: 50),
-            button.widthAnchor.constraint(equalToConstant: 200)
-       ])
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    let mainViewController = ViewController()
+                    let navigationController = UINavigationController(rootViewController: LoginViewController())
+                    navigationController.modalPresentationStyle = .fullScreen
+                    self.present(navigationController, animated: true, completion: nil)
+                }
+        
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+   
     
     func someImageViewConstraints() {
-        someImageView.widthAnchor.constraint(equalToConstant: 1100).isActive = true
-        someImageView.heightAnchor.constraint(equalToConstant: 850).isActive = true
-        someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
+            someImageView.widthAnchor.constraint(equalToConstant: 1100).isActive = true
+            someImageView.heightAnchor.constraint(equalToConstant: 850).isActive = true
+            someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        }
     
     func logoViewConstraints() {
         NSLayoutConstraint.activate([
-            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 280),
             logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
             logoView.heightAnchor.constraint(equalToConstant: 250),
@@ -101,7 +87,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             label.centerXAnchor
                 .constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 390)
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 470)
         ])
     }
 }

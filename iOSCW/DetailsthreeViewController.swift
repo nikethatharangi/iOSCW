@@ -238,35 +238,36 @@ class DetailsthreeViewController: UIViewController {
         NSLayoutConstraint.activate([
             absbutton.topAnchor.constraint(equalTo: view.topAnchor, constant: 380),
             absbutton.leftAnchor
-                         .constraint(equalTo: view.leftAnchor, constant: 75),
+                         .constraint(equalTo: view.leftAnchor, constant: 30),
 
             absbutton.heightAnchor.constraint(equalToConstant: 40),
-            absbutton.widthAnchor.constraint(equalToConstant: 100)
+            absbutton.widthAnchor.constraint(equalToConstant: 200)
         ])
         
         NSLayoutConstraint.activate([
-                     legbutton.topAnchor.constraint(equalTo: view.topAnchor, constant: 520),
+                     legbutton.topAnchor.constraint(equalTo: view.topAnchor, constant: 440),
                      legbutton.leftAnchor
-                         .constraint(equalTo: view.leftAnchor, constant: 200),
+                         .constraint(equalTo: view.leftAnchor, constant: 30),
 
                      legbutton.heightAnchor.constraint(equalToConstant: 40),
-                     legbutton.widthAnchor.constraint(equalToConstant: 100)
+                     legbutton.widthAnchor.constraint(equalToConstant: 200)
         ])
         
         NSLayoutConstraint.activate([
-                     armbutton.topAnchor.constraint(equalTo: view.topAnchor, constant: 330),
+                     armbutton.topAnchor.constraint(equalTo: view.topAnchor, constant: 320),
                      armbutton.leftAnchor
-                         .constraint(equalTo: view.leftAnchor, constant: 200),
+                         .constraint(equalTo: view.leftAnchor, constant: 30),
 
                      armbutton.heightAnchor.constraint(equalToConstant: 40),
-                     armbutton.widthAnchor.constraint(equalToConstant: 100)
+                     armbutton.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     
     func someImageViewConstraints() {
         someImageView.widthAnchor.constraint(equalToConstant: 270).isActive = true
         someImageView.heightAnchor.constraint(equalToConstant: 430).isActive = true
-        someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        let leadingSpace: CGFloat = 150 // Adjust the value as needed
+        someImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingSpace).isActive = true
         someImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
 
