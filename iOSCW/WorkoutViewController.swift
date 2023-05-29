@@ -9,6 +9,7 @@ import UIKit
 
 class WorkoutViewController: UIViewController {
 
+    
     let label : UILabel = {
         let label = UILabel()
         label.text = "Workout List"
@@ -31,7 +32,7 @@ class WorkoutViewController: UIViewController {
         let label = UILabel()
         label.text = "Legs"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.magenta
+        label.textColor = UIColor.white
         label.font = UIFont(name: "ArialRoundedMTBold", size: 18)
         return label
     }()
@@ -40,7 +41,7 @@ class WorkoutViewController: UIViewController {
         let label = UILabel()
         label.text = "Arm"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.magenta
+        label.textColor = UIColor.white
         label.font = UIFont(name: "ArialRoundedMTBold", size: 18)
         return label
     }()
@@ -49,7 +50,7 @@ class WorkoutViewController: UIViewController {
         let label = UILabel()
         label.text = "Chest"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.magenta
+        label.textColor = UIColor.white
         label.font = UIFont(name: "ArialRoundedMTBold", size: 18)
         return label
     }()
@@ -58,9 +59,101 @@ class WorkoutViewController: UIViewController {
         let label = UILabel()
         label.text = "Abs"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.magenta
+        label.textColor = UIColor.white
         label.font = UIFont(name: "ArialRoundedMTBold", size: 18)
         return label
+    }()
+    
+    let legnolabel : UILabel = {
+        let label = UILabel()
+        label.text = "x 10 exercises"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 13)
+        return label
+    }()
+    
+    let armnolabel : UILabel = {
+        let label = UILabel()
+        label.text = "x 10 exercises"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 13)
+        return label
+    }()
+    
+    let chestnolabel : UILabel = {
+        let label = UILabel()
+        label.text = "x 10 exercises"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 13)
+        return label
+    }()
+    
+    let absnolabel : UILabel = {
+        let label = UILabel()
+        label.text = "x 10 exercises"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 13)
+        return label
+    }()
+    
+    let showarmbutton : UIButton = {
+        let showbutton = UIButton()
+        showbutton.backgroundColor = .black
+        showbutton.layer.cornerRadius = 15
+        showbutton.layer.borderColor = UIColor.magenta.cgColor
+        showbutton.layer.borderWidth = 1
+        showbutton.translatesAutoresizingMaskIntoConstraints = false
+        showbutton.setTitle(">", for: .normal)
+        showbutton.semanticContentAttribute = .forceRightToLeft
+        showbutton.tintColor = .white
+        showbutton.addTarget(self, action: #selector(showTaparmAction), for: .touchUpInside)
+        return showbutton
+    }()
+    
+    let showlegbutton : UIButton = {
+        let showbutton = UIButton()
+        showbutton.backgroundColor = .black
+        showbutton.layer.cornerRadius = 15
+        showbutton.layer.borderColor = UIColor.magenta.cgColor
+        showbutton.layer.borderWidth = 1
+        showbutton.translatesAutoresizingMaskIntoConstraints = false
+        showbutton.setTitle(">", for: .normal)
+        showbutton.semanticContentAttribute = .forceRightToLeft
+        showbutton.tintColor = .white
+        showbutton.addTarget(self, action: #selector(showTaplegAction), for: .touchUpInside)
+        return showbutton
+    }()
+    
+    let showchestbutton : UIButton = {
+        let showbutton = UIButton()
+        showbutton.backgroundColor = .black
+        showbutton.layer.cornerRadius = 15
+        showbutton.layer.borderColor = UIColor.magenta.cgColor
+        showbutton.layer.borderWidth = 1
+        showbutton.translatesAutoresizingMaskIntoConstraints = false
+        showbutton.setTitle(">", for: .normal)
+        showbutton.semanticContentAttribute = .forceRightToLeft
+        showbutton.tintColor = .white
+        showbutton.addTarget(self, action: #selector(showTapchestAction), for: .touchUpInside)
+        return showbutton
+    }()
+    
+    let showabsbutton : UIButton = {
+        let showbutton = UIButton()
+        showbutton.backgroundColor = .black
+        showbutton.layer.cornerRadius = 15
+        showbutton.layer.borderColor = UIColor.magenta.cgColor
+        showbutton.layer.borderWidth = 1
+        showbutton.translatesAutoresizingMaskIntoConstraints = false
+        showbutton.setTitle(">", for: .normal)
+        showbutton.semanticContentAttribute = .forceRightToLeft
+        showbutton.tintColor = .white
+        showbutton.addTarget(self, action: #selector(showTapabsAction), for: .touchUpInside)
+        return showbutton
     }()
     
     let catoneroundedView: UIView = {
@@ -115,7 +208,7 @@ class WorkoutViewController: UIViewController {
         let theImageView = UIImageView()
         theImageView.image = UIImage(named: "legs.png")
         theImageView.isOpaque = false
-        //theImageView.alpha = CGFloat(0.3)
+        ///theImageView.alpha = CGFloat(0.3)
         theImageView.translatesAutoresizingMaskIntoConstraints = false
         return theImageView
     }()
@@ -164,6 +257,14 @@ class WorkoutViewController: UIViewController {
         cattworoundedView.addSubview(chestlabel)
         catthreeroundedView.addSubview(armlabel)
         catfourroundedView.addSubview(abslabel)
+        catoneroundedView.addSubview(showlegbutton)
+        cattworoundedView.addSubview(showchestbutton)
+        catthreeroundedView.addSubview(showarmbutton)
+        catfourroundedView.addSubview(showabsbutton)
+        catoneroundedView.addSubview(legnolabel)
+        cattworoundedView.addSubview(chestnolabel)
+        catthreeroundedView.addSubview(armnolabel)
+        catfourroundedView.addSubview(absnolabel)
         
         setConstraints()
         legImageViewConstraints()
@@ -172,7 +273,63 @@ class WorkoutViewController: UIViewController {
         absImageViewConstraints()
     }
     
+    @objc func showTaparmAction(){
+        let nextScreen = ArmworkoutViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
+    }
+    
+    @objc func showTaplegAction(){
+        let nextScreen = LegsworkoutViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
+    }
+    
+    @objc func showTapchestAction(){
+        let nextScreen = ChestworkoutViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
+    }
+    
+    @objc func showTapabsAction(){
+        let nextScreen = AbsworkoutViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
+    }
+    
     func setConstraints(){
+        
+        NSLayoutConstraint.activate([
+                     showlegbutton.topAnchor.constraint(equalTo: catoneroundedView.topAnchor, constant: 10),
+                     showlegbutton.leftAnchor
+                         .constraint(equalTo: catoneroundedView.leftAnchor, constant: 110),
+
+                     showlegbutton.heightAnchor.constraint(equalToConstant: 30),
+                     showlegbutton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+                     showchestbutton.topAnchor.constraint(equalTo: cattworoundedView.topAnchor, constant: 10),
+                     showchestbutton.leftAnchor
+                         .constraint(equalTo: cattworoundedView.leftAnchor, constant: 110),
+
+                     showchestbutton.heightAnchor.constraint(equalToConstant: 30),
+                     showchestbutton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+                     showarmbutton.topAnchor.constraint(equalTo: catthreeroundedView.topAnchor, constant: 10),
+                     showarmbutton.leftAnchor
+                         .constraint(equalTo: catthreeroundedView.leftAnchor, constant: 110),
+
+                     showarmbutton.heightAnchor.constraint(equalToConstant: 30),
+                     showarmbutton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+                     showabsbutton.topAnchor.constraint(equalTo: catfourroundedView.topAnchor, constant: 10),
+                     showabsbutton.leftAnchor
+                         .constraint(equalTo: catfourroundedView.leftAnchor, constant: 110),
+
+                     showabsbutton.heightAnchor.constraint(equalToConstant: 30),
+                     showabsbutton.widthAnchor.constraint(equalToConstant: 40)
+        ])
         
         NSLayoutConstraint.activate([
             label.leftAnchor
@@ -184,6 +341,54 @@ class WorkoutViewController: UIViewController {
             typelabel.leftAnchor
                 .constraint(equalTo: view.leftAnchor, constant: 30),
             typelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150)
+        ])
+        
+        NSLayoutConstraint.activate([
+            armlabel.leftAnchor
+                .constraint(equalTo: catthreeroundedView.leftAnchor, constant: 30),
+            armlabel.topAnchor.constraint(equalTo: catthreeroundedView.topAnchor, constant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            leglabel.leftAnchor
+                .constraint(equalTo: catoneroundedView.leftAnchor, constant: 30),
+            leglabel.topAnchor.constraint(equalTo: catoneroundedView.topAnchor, constant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            chestlabel.leftAnchor
+                .constraint(equalTo: cattworoundedView.leftAnchor, constant: 30),
+            chestlabel.topAnchor.constraint(equalTo: cattworoundedView.topAnchor, constant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            abslabel.leftAnchor
+                .constraint(equalTo: catfourroundedView.leftAnchor, constant: 30),
+            abslabel.topAnchor.constraint(equalTo: catfourroundedView.topAnchor, constant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            armnolabel.leftAnchor
+                .constraint(equalTo: catthreeroundedView.leftAnchor, constant: 30),
+            armnolabel.topAnchor.constraint(equalTo: catthreeroundedView.topAnchor, constant: 80)
+        ])
+        
+        NSLayoutConstraint.activate([
+            legnolabel.leftAnchor
+                .constraint(equalTo: catoneroundedView.leftAnchor, constant: 30),
+            legnolabel.topAnchor.constraint(equalTo: catoneroundedView.topAnchor, constant: 80)
+        ])
+        
+        NSLayoutConstraint.activate([
+            chestnolabel.leftAnchor
+                .constraint(equalTo: cattworoundedView.leftAnchor, constant: 30),
+            chestnolabel.topAnchor.constraint(equalTo: cattworoundedView.topAnchor, constant: 80)
+        ])
+        
+        NSLayoutConstraint.activate([
+            absnolabel.leftAnchor
+                .constraint(equalTo: catfourroundedView.leftAnchor, constant: 30),
+            absnolabel.topAnchor.constraint(equalTo: catfourroundedView.topAnchor, constant: 80)
         ])
         
         NSLayoutConstraint.activate([
@@ -246,7 +451,7 @@ class WorkoutViewController: UIViewController {
         
     }
     func legImageViewConstraints() {
-        legImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        legImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         legImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         legImageView.centerXAnchor.constraint(equalTo: catoneroundedView.centerXAnchor).isActive = true
         let top: CGFloat = 150 // Adjust the value as needed
@@ -257,7 +462,7 @@ class WorkoutViewController: UIViewController {
         }
     func armImageViewConstraints() {
         
-        armImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        armImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         armImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         armImageView.centerXAnchor.constraint(equalTo: catthreeroundedView.centerXAnchor).isActive = true
 
@@ -267,7 +472,7 @@ class WorkoutViewController: UIViewController {
         //armImageView.leadingAnchor.constraint(equalTo: catthreeroundedView.leadingAnchor, constant: leadingSpace).isActive = true
         }
     func chestImageViewConstraints() {
-            chestImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+            chestImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         chestImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         chestImageView.centerXAnchor.constraint(equalTo: cattworoundedView.centerXAnchor).isActive = true
         let top: CGFloat = 150 // Adjust the value as needed
@@ -276,7 +481,7 @@ class WorkoutViewController: UIViewController {
         //chestImageView.leadingAnchor.constraint(equalTo: cattworoundedView.leadingAnchor, constant: leadingSpace).isActive = true
         }
     func absImageViewConstraints() {
-            absImageView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+            absImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         absImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         absImageView.centerXAnchor.constraint(equalTo: catfourroundedView.centerXAnchor).isActive = true
         let top: CGFloat = 150 // Adjust the value as needed

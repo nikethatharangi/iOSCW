@@ -9,6 +9,7 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    
     let roundedView: UIView = {
            let view = UIView()
            view.layer.cornerRadius = 20
@@ -18,12 +19,23 @@ class AccountViewController: UIViewController {
            return view
        }()
     
+    let bottomroundedView: UIView = {
+        let bottomroundedView = UIView()
+        bottomroundedView.layer.cornerRadius = 20
+        bottomroundedView.backgroundColor = .systemFill
+       // bottomroundedView.alpha = CGFloat(0.2)
+//        bottomroundedView.layer.borderColor = UIColor.white.cgColor
+//        bottomroundedView.layer.borderWidth = 1
+        bottomroundedView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return bottomroundedView
+       }()
     
     let catoneroundedView: UIView = {
         let catoneroundedView = UIView()
         catoneroundedView.layer.cornerRadius = 20
-        catoneroundedView.backgroundColor = .white
-        catoneroundedView.alpha = CGFloat(0.2)
+        catoneroundedView.backgroundColor = .systemFill
+       // catoneroundedView.alpha = CGFloat(0.2)
 //        catoneroundedView.layer.borderColor = UIColor.white.cgColor
 //        catoneroundedView.layer.borderWidth = 1
         catoneroundedView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,8 +46,8 @@ class AccountViewController: UIViewController {
     let cattworoundedView: UIView = {
         let cattworoundedView = UIView()
         cattworoundedView.layer.cornerRadius = 20
-        cattworoundedView.backgroundColor = .white
-        cattworoundedView.alpha = CGFloat(0.2)
+        cattworoundedView.backgroundColor = .systemFill
+      //  cattworoundedView.alpha = CGFloat(0.2)
 //        cattworoundedView.layer.borderColor = UIColor.white.cgColor
 //        cattworoundedView.layer.borderWidth = 1
         cattworoundedView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,8 +58,8 @@ class AccountViewController: UIViewController {
     let catthreeroundedView: UIView = {
         let catthreeroundedView = UIView()
         catthreeroundedView.layer.cornerRadius = 20
-        catthreeroundedView.backgroundColor = .white
-        catthreeroundedView.alpha = CGFloat(0.2)
+        catthreeroundedView.backgroundColor = .systemFill
+      //  catthreeroundedView.alpha = CGFloat(0.2)
 //        catthreeroundedView.layer.borderColor = UIColor.white.cgColor
 //        catthreeroundedView.layer.borderWidth = 1
         catthreeroundedView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +106,24 @@ class AccountViewController: UIViewController {
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
             label.font = UIFont(name: "ArialRoundedMTBold", size: 20)
+           return label
+       }()
+    
+    let bmiLabel: UILabel = {
+           let label = UILabel()
+            label.text = "Current BMI : "
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textColor = UIColor.white
+            label.font = UIFont(name: "ArialRoundedMTBold", size: 17)
+           return label
+       }()
+    
+    let bminumLabel: UILabel = {
+           let label = UILabel()
+            label.text = " 21.2"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textColor = UIColor.white
+            label.font = UIFont(name: "ArialRoundedMTBold", size: 17)
            return label
        }()
     
@@ -191,11 +221,13 @@ class AccountViewController: UIViewController {
 //        gradientLayer.frame = roundedView.bounds
         view.addSubview(categoryLabel)
         view.addSubview(howLabel)
-
+        view.addSubview(bottomroundedView)
         view.addSubview(roundedView)
         view.addSubview(catoneroundedView)
         view.addSubview(cattworoundedView)
         view.addSubview(catthreeroundedView)
+        view.addSubview(bmiLabel)
+        view.addSubview(bminumLabel)
 
         view.addSubview(categoryLabel)
         //button.addSubview(nameLabel)
@@ -205,6 +237,7 @@ class AccountViewController: UIViewController {
         someImageView.addSubview(heightnumLabel)
         someImageView.addSubview(nameLabel)
         someImageView.addSubview(ageLabel)
+        
         someImageView.addSubview(agenumLabel)
         roundedView.addSubview(someImageView)
         
@@ -231,7 +264,18 @@ class AccountViewController: UIViewController {
                         .constraint(equalTo: view.topAnchor, constant: 150),
                 ])
         
-       
+        NSLayoutConstraint.activate([
+                    bottomroundedView.widthAnchor
+                        .constraint(equalTo: view.widthAnchor,
+                                    multiplier: 0.9),
+                    bottomroundedView.heightAnchor
+                        .constraint(equalTo: view.heightAnchor,
+                                    multiplier: 0.275),
+                    bottomroundedView.centerXAnchor
+                        .constraint(equalTo: view.centerXAnchor),
+                    bottomroundedView.topAnchor
+                        .constraint(equalTo: view.topAnchor, constant: 520),
+                ])
         
         NSLayoutConstraint.activate([
                     catoneroundedView.widthAnchor
@@ -289,6 +333,24 @@ class AccountViewController: UIViewController {
             weightLabel.topAnchor
                         .constraint(equalTo: view.topAnchor,
                                     constant: 430)
+                ])
+        
+        NSLayoutConstraint.activate([
+            bmiLabel.leftAnchor
+                        .constraint(equalTo: view.leftAnchor,
+                                    constant: 40),
+            bmiLabel.topAnchor
+                        .constraint(equalTo: view.topAnchor,
+                                    constant: 560)
+                ])
+        
+        NSLayoutConstraint.activate([
+            bminumLabel.leftAnchor
+                        .constraint(equalTo: view.leftAnchor,
+                                    constant: 180),
+            bminumLabel.topAnchor
+                        .constraint(equalTo: view.topAnchor,
+                                    constant: 560)
                 ])
         
         NSLayoutConstraint.activate([

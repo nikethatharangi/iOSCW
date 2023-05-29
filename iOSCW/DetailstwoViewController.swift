@@ -18,7 +18,6 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         return numbers.count // Total number of rows
     }
     
-    
 
     let label : UILabel = {
         let label = UILabel()
@@ -65,18 +64,18 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         return agelabel
     }()
     
-    let roundedView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 50
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: -1, height: 1)
-        view.alpha = CGFloat(0.3)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.6
-        return view
-    }()
+//    let roundedView: UIView = {
+//        let view = UIView()
+//        view.layer.cornerRadius = 50
+//        view.backgroundColor = .systemFill
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layer.masksToBounds = false
+//        view.layer.shadowOffset = CGSize(width: -1, height: 1)
+//        //view.alpha = CGFloat(0.3)
+//        view.layer.shadowRadius = 5
+//        view.layer.shadowOpacity = 0.6
+//        return view
+//    }()
     
     let button : UIButton = {
         let button = UIButton()
@@ -167,7 +166,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         super.viewDidLoad()
 
         view.backgroundColor = .black
-        view.addSubview(roundedView)
+        //view.addSubview(roundedView)
         view.addSubview(someImageView)
 
         view.addSubview(button)
@@ -239,18 +238,18 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func setConstraints(){
         
-        NSLayoutConstraint.activate([
-            roundedView.widthAnchor
-                            .constraint(equalTo: view.widthAnchor,
-                                        multiplier: 0.9),
-                        roundedView.heightAnchor
-                            .constraint(equalTo: view.heightAnchor,
-                                        multiplier: 0.5),
-                        roundedView.centerXAnchor
-                            .constraint(equalTo: view.centerXAnchor),
-                        roundedView.centerYAnchor
-                            .constraint(equalTo: view.centerYAnchor),
-                ])
+//        NSLayoutConstraint.activate([
+//            roundedView.widthAnchor
+//                            .constraint(equalTo: view.widthAnchor,
+//                                        multiplier: 0.9),
+//                        roundedView.heightAnchor
+//                            .constraint(equalTo: view.heightAnchor,
+//                                        multiplier: 0.5),
+//                        roundedView.centerXAnchor
+//                            .constraint(equalTo: view.centerXAnchor),
+//                        roundedView.centerYAnchor
+//                            .constraint(equalTo: view.centerYAnchor),
+//                ])
                 
         NSLayoutConstraint.activate([
                      button.topAnchor.constraint(equalTo: view.topAnchor, constant: 750),
@@ -295,10 +294,10 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func someImageViewConstraints() {
-            someImageView.widthAnchor.constraint(equalToConstant: 500).isActive = true
-            someImageView.heightAnchor.constraint(equalToConstant: 1100).isActive = true
-            someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
+        someImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        someImageView.heightAnchor.constraint(equalToConstant: 550).isActive = true
+    let top: CGFloat = 500 // Adjust the value as needed
+    someImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: top).isActive = true
 
     }
 

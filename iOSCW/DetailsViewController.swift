@@ -64,19 +64,19 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return agelabel
     }()
     
-    let roundedView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 50
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: -1, height: 1)
-        view.alpha = CGFloat(0.3)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.6
-        return view
-    }()
-    
+//    let roundedView: UIView = {
+//        let view = UIView()
+//        view.layer.cornerRadius = 50
+//        view.backgroundColor = .systemFill
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layer.masksToBounds = false
+//        view.layer.shadowOffset = CGSize(width: -1, height: 1)
+//        //view.alpha = CGFloat(0.3)
+//        view.layer.shadowRadius = 5
+//        view.layer.shadowOpacity = 0.6
+//        return view
+//    }()
+//
     let button : UIButton = {
         let button = UIButton()
         button.backgroundColor = .black
@@ -195,7 +195,7 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        view.addSubview(roundedView)
+        //view.addSubview(roundedView)
         view.addSubview(someImageView)
         view.addSubview(malebutton)
         view.addSubview(femalebutton)
@@ -228,7 +228,8 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 ])
     }
     
-   
+        
+
         // MARK: - UIPickerViewDelegate
 
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -239,7 +240,6 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             let selectedNumber = numbers[row]
             print("Selected number: \(selectedNumber)")
         }
-   
    
     
     @objc func maleTapAction(_ sender: UIButton) {
@@ -256,31 +256,31 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             femalebutton.backgroundColor = UIColor.magenta
 
    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
       
     @objc func gotonexAction(){
         let nextScreen = DetailstwoViewController()
         navigationController?.pushViewController(nextScreen, animated: true)
     }
   
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-    }
     
     func setConstraints(){
         
-        NSLayoutConstraint.activate([
-            roundedView.widthAnchor
-                            .constraint(equalTo: view.widthAnchor,
-                                        multiplier: 0.9),
-                        roundedView.heightAnchor
-                            .constraint(equalTo: view.heightAnchor,
-                                        multiplier: 0.5),
-                        roundedView.centerXAnchor
-                            .constraint(equalTo: view.centerXAnchor),
-                        roundedView.centerYAnchor
-                            .constraint(equalTo: view.centerYAnchor),
-                ])
+//        NSLayoutConstraint.activate([
+//            roundedView.widthAnchor
+//                            .constraint(equalTo: view.widthAnchor,
+//                                        multiplier: 0.9),
+//                        roundedView.heightAnchor
+//                            .constraint(equalTo: view.heightAnchor,
+//                                        multiplier: 0.5),
+//                        roundedView.centerXAnchor
+//                            .constraint(equalTo: view.centerXAnchor),
+//                        roundedView.centerYAnchor
+//                            .constraint(equalTo: view.centerYAnchor),
+//                ])
                 
         NSLayoutConstraint.activate([
                      button.topAnchor.constraint(equalTo: view.topAnchor, constant: 750),
@@ -324,28 +324,28 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         NSLayoutConstraint.activate([
             detailslabel.leftAnchor
-                .constraint(equalTo: view.leftAnchor, constant: 30),
-            detailslabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 290)
+                .constraint(equalTo: view.leftAnchor, constant: 50),
+            detailslabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 260)
         ])
         
         NSLayoutConstraint.activate([
             genderlabel.leftAnchor
-                .constraint(equalTo: view.leftAnchor, constant: 30),
+                .constraint(equalTo: view.leftAnchor, constant: 50),
             genderlabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 335)
         ])
         
         NSLayoutConstraint.activate([
             agelabel.leftAnchor
-                .constraint(equalTo: view.leftAnchor, constant: 30),
+                .constraint(equalTo: view.leftAnchor, constant: 50),
             agelabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 445)
         ])
        
     }
     func someImageViewConstraints() {
-            someImageView.widthAnchor.constraint(equalToConstant: 500).isActive = true
-            someImageView.heightAnchor.constraint(equalToConstant: 1100).isActive = true
-            someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
+            someImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+            someImageView.heightAnchor.constraint(equalToConstant: 550).isActive = true
+        let top: CGFloat = 500 // Adjust the value as needed
+        someImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: top).isActive = true
 
         }
     
