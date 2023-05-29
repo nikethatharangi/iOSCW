@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C4321782A18CE6F00801906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C4321772A18CE6F00801906 /* GoogleService-Info.plist */; };
 		1C4321822A18E82F00801906 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4321812A18E82F00801906 /* FirebaseAuth */; };
 		1C4321842A18E82F00801906 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4321832A18E82F00801906 /* FirebaseCrashlytics */; };
 		1C4321862A18E82F00801906 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4321852A18E82F00801906 /* FirebaseDatabase */; };
@@ -25,6 +24,7 @@
 		1C595D8F2A243120006382B4 /* AbsworkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C595D8E2A243120006382B4 /* AbsworkoutViewController.swift */; };
 		1C595D912A243146006382B4 /* ArmworkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C595D902A243146006382B4 /* ArmworkoutViewController.swift */; };
 		1C595D932A243158006382B4 /* LegsworkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C595D922A243158006382B4 /* LegsworkoutViewController.swift */; };
+		1C595DE12A245EBE006382B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C595DE02A245EBE006382B4 /* GoogleService-Info.plist */; };
 		1C9EB1442A10A57900326D10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1432A10A57900326D10 /* AppDelegate.swift */; };
 		1C9EB1462A10A57900326D10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1452A10A57900326D10 /* SceneDelegate.swift */; };
 		1C9EB1482A10A57900326D10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9EB1472A10A57900326D10 /* ViewController.swift */; };
@@ -57,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C4321772A18CE6F00801906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C43218D2A18F79000801906 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1C43218F2A18F7BF00801906 /* DetailstwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailstwoViewController.swift; sourceTree = "<group>"; };
 		1C4321912A18F88A00801906 /* DetailsthreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsthreeViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		1C595D8E2A243120006382B4 /* AbsworkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsworkoutViewController.swift; sourceTree = "<group>"; };
 		1C595D902A243146006382B4 /* ArmworkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmworkoutViewController.swift; sourceTree = "<group>"; };
 		1C595D922A243158006382B4 /* LegsworkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegsworkoutViewController.swift; sourceTree = "<group>"; };
+		1C595DE02A245EBE006382B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C9EB1402A10A57900326D10 /* iOSCW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9EB1432A10A57900326D10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C9EB1452A10A57900326D10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +141,7 @@
 		1C9EB1422A10A57900326D10 /* iOSCW */ = {
 			isa = PBXGroup;
 			children = (
+				1C595DE02A245EBE006382B4 /* GoogleService-Info.plist */,
 				1C9EB1432A10A57900326D10 /* AppDelegate.swift */,
 				1C9EB1452A10A57900326D10 /* SceneDelegate.swift */,
 				1C9EB1472A10A57900326D10 /* ViewController.swift */,
@@ -150,7 +151,6 @@
 				1C9EB1732A111B6900326D10 /* LoginViewController.swift */,
 				1C9EB1772A12598100326D10 /* DashboardViewController.swift */,
 				1C9EB1792A13AD8800326D10 /* WorkoutListViewController.swift */,
-				1C4321772A18CE6F00801906 /* GoogleService-Info.plist */,
 				1C9EB17B2A13DC4C00326D10 /* BMIViewController.swift */,
 				1C43218D2A18F79000801906 /* DetailsViewController.swift */,
 				1C43218F2A18F7BF00801906 /* DetailstwoViewController.swift */,
@@ -301,8 +301,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9EB1502A10A57A00326D10 /* LaunchScreen.storyboard in Resources */,
+				1C595DE12A245EBE006382B4 /* GoogleService-Info.plist in Resources */,
 				1C9EB14D2A10A57A00326D10 /* Assets.xcassets in Resources */,
-				1C4321782A18CE6F00801906 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
