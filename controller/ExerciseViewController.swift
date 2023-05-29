@@ -203,66 +203,55 @@ class ExerciseDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
-        // Create and configure the background image view
-                let backgroundImage = UIImageView(image: UIImage(named: "exebg"))
-                backgroundImage.contentMode = .scaleAspectFill
-                backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-                view.addSubview(backgroundImage)
-        NSLayoutConstraint.activate([
-                    backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
-                    backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                    backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-                ])
         
         // Create and configure labels
         let titleLabel = UILabel()
         titleLabel.text = "Exercise Name:"
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        titleLabel.textColor = UIColor.label
+        titleLabel.textColor = UIColor.white
         titleLabel.numberOfLines = 0
         
         let nameLabel = UILabel()
         nameLabel.text = exercise.name
         nameLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        nameLabel.textColor = UIColor.label
+        nameLabel.textColor = UIColor.white
         nameLabel.numberOfLines = 0
         
         let difficultyTitleLabel = UILabel()
         difficultyTitleLabel.text = "Target:"
         difficultyTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        difficultyTitleLabel.textColor = UIColor.label
+        difficultyTitleLabel.textColor = UIColor.white
         difficultyTitleLabel.numberOfLines = 0
         
         let difficultyLabel = UILabel()
         difficultyLabel.text = exercise.target
         difficultyLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        difficultyLabel.textColor = UIColor.secondaryLabel
+        difficultyLabel.textColor = UIColor.white
         difficultyLabel.numberOfLines = 0
         
         let typeTitleLabel = UILabel()
         typeTitleLabel.text = "Body Part:"
         typeTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        typeTitleLabel.textColor = UIColor.label
+        typeTitleLabel.textColor = UIColor.white
         typeTitleLabel.numberOfLines = 0
         
         let typeLabel = UILabel()
         typeLabel.text = "\(exercise.bodyPart) "
         typeLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        typeLabel.textColor = UIColor.secondaryLabel
+        typeLabel.textColor = UIColor.white
         
         let muscleTitleLabel = UILabel()
         muscleTitleLabel.text = "Equipment:"
         muscleTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        muscleTitleLabel.textColor = UIColor.label
+        muscleTitleLabel.textColor = UIColor.white
         muscleTitleLabel.numberOfLines = 0
         
         let muscleLabel = UILabel()
         muscleLabel.text = "\(exercise.equipment)"
         muscleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        muscleLabel.textColor = UIColor.secondaryLabel
+        muscleLabel.textColor = UIColor.white
         muscleLabel.numberOfLines = 0
         
         // Set up the video view
