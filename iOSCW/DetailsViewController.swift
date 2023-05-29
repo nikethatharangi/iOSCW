@@ -10,15 +10,24 @@ import QuartzCore
 
 class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1 // Display one column of numbers
-    }
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return 100
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return "\(row)"
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            selectedAge = row
+        }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return numbers.count // Total number of rows
-    }
-    
-    
-    
+    private var selectedGender: String?
+    private var selectedAge: Int?
+   
     let label : UILabel = {
         let label = UILabel()
         label.text = "Start Your Fitness"
@@ -230,57 +239,58 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
         
 
-        // MARK: - UIPickerViewDelegate
-
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return "\(numbers[row])" // Display number as row title
-        }
-
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let selectedNumber = numbers[row]
-            print("Selected number: \(selectedNumber)")
-        }
-   
+//        // MARK: - UIPickerViewDelegate
+//
+//        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//            return "\(numbers[row])" // Display number as row title
+//        }
+//
+//        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//            let selectedNumber = numbers[row]
+//            print("Selected number: \(selectedNumber)")
+//        }
+//
     
     @objc func maleTapAction(_ sender: UIButton) {
 
         // Deselect male button and restore its color
         malebutton.isSelected = false
         malebutton.backgroundColor = UIColor.magenta
+        
+        selectedGender = "Male"
+        
         }
 
-        @objc func femaleTapAction(_ sender: UIButton) {
+    @objc func femaleTapAction(_ sender: UIButton) {
 
-            // Deselect female button and restore its color
-            femalebutton.isSelected = false
-            femalebutton.backgroundColor = UIColor.magenta
+        // Deselect female button and restore its color
+        femalebutton.isSelected = false
+        femalebutton.backgroundColor = UIColor.magenta
+        
+        selectedGender = "Female"
 
-   }
+        }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
+    
       
     @objc func gotonexAction(){
-        let nextScreen = DetailstwoViewController()
-        navigationController?.pushViewController(nextScreen, animated: true)
+        guard let selectedGender = selectedGender, let selectedAge = selectedAge else {
+          // Handle the case when gender or age is not selected
+          return
+        }
+                
+        let detailsTwoVC = DetailstwoViewController(gender: selectedGender, age: selectedAge)
+        navigationController?.pushViewController(detailsTwoVC, animated: true)
+
     }
   
     
     func setConstraints(){
         
-//        NSLayoutConstraint.activate([
-//            roundedView.widthAnchor
-//                            .constraint(equalTo: view.widthAnchor,
-//                                        multiplier: 0.9),
-//                        roundedView.heightAnchor
-//                            .constraint(equalTo: view.heightAnchor,
-//                                        multiplier: 0.5),
-//                        roundedView.centerXAnchor
-//                            .constraint(equalTo: view.centerXAnchor),
-//                        roundedView.centerYAnchor
-//                            .constraint(equalTo: view.centerYAnchor),
-//                ])
                 
         NSLayoutConstraint.activate([
                      button.topAnchor.constraint(equalTo: view.topAnchor, constant: 750),

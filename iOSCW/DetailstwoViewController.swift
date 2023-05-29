@@ -10,13 +10,51 @@ import QuartzCore
 
 class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1 // Display one column of numbers
-    }
+ 
+    private var selectedGender: String
+        private var selectedAge: Int
+        private var selectedHeight: Int?
+        private var selectedWeight: Int?
+        private let heightPicker = UIPickerView()
+        private let weightPicker = UIPickerView()
+//    private var heightPicker: UIPickerView!
+//    private var weightPicker: UIPickerView!
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return numbers.count // Total number of rows
-    }
+    init(gender: String, age: Int) {
+           self.selectedGender = gender
+           self.selectedAge = age
+           super.init(nibName: nil, bundle: nil)
+       }
+       
+       required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+       }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            if pickerView == heightPicker {
+                return 200
+            } else if pickerView == weightPicker {
+                return 150
+            }
+            return 0
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return "\(row)"
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            if pickerView == heightPicker {
+                selectedHeight = row
+            } else if pickerView == weightPicker {
+                selectedWeight = row
+            }
+        }
+    
     
 
     let label : UILabel = {
@@ -158,8 +196,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
             ])
     }
     
-    private var heightPicker: UIPickerView!
-    private var weightPicker: UIPickerView!
+
     private var numbers: [Int] = Array(0...500)
     
     override func viewDidLoad() {
@@ -181,7 +218,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         
         // Create and configure the number picker
-                heightPicker = UIPickerView()
+               // heightPicker = UIPickerView()
                 heightPicker.dataSource = self
                 heightPicker.delegate = self
         heightPicker.tintColor = .white
@@ -200,7 +237,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         
         // Create and configure the number picker
-                weightPicker = UIPickerView()
+              //  weightPicker = UIPickerView()
                 weightPicker.dataSource = self
                 weightPicker.delegate = self
         weightPicker.tintColor = .white
@@ -221,18 +258,23 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     // MARK: - UIPickerViewDelegate
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(numbers[row])" // Display number as row title
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedNumber = numbers[row]
-        print("Selected number: \(selectedNumber)")
-    }
-    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return "\(numbers[row])" // Display number as row title
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        let selectedNumber = numbers[row]
+//        print("Selected number: \(selectedNumber)")
+//    }
+//    
     @objc func gotonexAction(){
-        let nextScreen = DetailsthreeViewController()
-        navigationController?.pushViewController(nextScreen, animated: true)
+        guard let selectedHeight = selectedHeight, let selectedWeight = selectedWeight else {
+                    // Handle the case when height or weight is not selected
+                    return
+                }
+                
+                let detailsThreeVC = DetailsthreeViewController(gender: selectedGender, age: selectedAge, height: selectedHeight, weight: selectedWeight)
+                navigationController?.pushViewController(detailsThreeVC, animated: true)
     }
    
     

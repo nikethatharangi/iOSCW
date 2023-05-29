@@ -6,9 +6,30 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class DetailsthreeViewController: UIViewController {
 
+    
+    private var selectedGender: String
+        private var selectedAge: Int
+        private var selectedHeight: Int
+        private var selectedWeight: Int
+        private var selectedGoal: String?
+    
+    init(gender: String, age: Int, height: Int, weight: Int) {
+            self.selectedGender = gender
+            self.selectedAge = age
+            self.selectedHeight = height
+            self.selectedWeight = weight
+            super.init(nibName: nil, bundle: nil)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    
     let label : UILabel = {
         let label = UILabel()
         label.text = "Start Your Fitness"
@@ -181,6 +202,7 @@ class DetailsthreeViewController: UIViewController {
         // Deselect male button and restore its color
         armbutton.isSelected = true
         armbutton.backgroundColor = UIColor.magenta
+        selectedGoal = "muscle building"
         }
 
         @objc func legTapAction(_ sender: UIButton) {
@@ -188,7 +210,7 @@ class DetailsthreeViewController: UIViewController {
             // Deselect female button and restore its color
             legbutton.isSelected = true
             legbutton.backgroundColor = UIColor.magenta
-
+            selectedGoal = "weight loss"
    }
     
     @objc func absTapAction(_ sender: UIButton) {
@@ -196,10 +218,36 @@ class DetailsthreeViewController: UIViewController {
         // Deselect female button and restore its color
         absbutton.isSelected = true
         absbutton.backgroundColor = UIColor.magenta
+        selectedGoal = "Maintain a balance"
 
 }
     
     @objc func gotonexAction(){
+        
+        guard let selectedGoal = selectedGoal else {
+                // Handle the case when goal is not selected
+                return
+            }
+
+            let db = Firestore.firestore()
+            let userCollection = db.collection("user")
+
+            let data: [String: Any] = [
+                "gender": selectedGender,
+                "age": selectedAge,
+                "height": selectedHeight,
+                "weight": selectedWeight,
+                "goal": selectedGoal
+            ]
+
+            userCollection.addDocument(data: data) { error in
+                if let error = error {
+                    print("Error saving data: \(error)")
+                } else {
+                    print("Data saved successfully!")
+                }
+            }
+        
         let nextScreen = TabController()
         navigationController?.pushViewController(nextScreen, animated: true)
     }
