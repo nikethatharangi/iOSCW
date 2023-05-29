@@ -27,7 +27,18 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     private var selectedGender: String?
     private var selectedAge: Int?
+   // var userEmail: String
    
+    
+//    init(userEmail: String) {
+//           self.userEmail = email
+//           super.init(nibName: nil, bundle: nil)
+//       }
+    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     let label : UILabel = {
         let label = UILabel()
         label.text = "Start Your Fitness"
@@ -279,13 +290,13 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
       
     @objc func gotonexAction(){
         guard let selectedGender = selectedGender, let selectedAge = selectedAge else {
-          // Handle the case when gender or age is not selected
-          return
-        }
-                
-        let detailsTwoVC = DetailstwoViewController(gender: selectedGender, age: selectedAge)
-        navigationController?.pushViewController(detailsTwoVC, animated: true)
-
+                // Handle the case when gender or age is not selected
+                return
+            }
+            
+            let detailsTwoVC = DetailstwoViewController(gender: selectedGender, age: selectedAge)
+            navigationController?.pushViewController(detailsTwoVC, animated: true)
+        
     }
   
     

@@ -13,6 +13,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
  
     private var selectedGender: String
         private var selectedAge: Int
+   
         private var selectedHeight: Int?
         private var selectedWeight: Int?
         private let heightPicker = UIPickerView()
@@ -273,7 +274,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
                     return
                 }
                 
-                let detailsThreeVC = DetailsthreeViewController(gender: selectedGender, age: selectedAge, height: selectedHeight, weight: selectedWeight)
+        let detailsThreeVC = DetailsthreeViewController(gender: selectedGender, age: selectedAge, height: selectedHeight, weight: selectedWeight)
                 navigationController?.pushViewController(detailsThreeVC, animated: true)
     }
    

@@ -14,6 +14,7 @@ class DetailsthreeViewController: UIViewController {
     
     private var selectedGender: String
         private var selectedAge: Int
+    
         private var selectedHeight: Int
         private var selectedWeight: Int
         private var selectedGoal: String?
@@ -23,6 +24,7 @@ class DetailsthreeViewController: UIViewController {
             self.selectedAge = age
             self.selectedHeight = height
             self.selectedWeight = weight
+            
             super.init(nibName: nil, bundle: nil)
         }
         
@@ -228,25 +230,50 @@ class DetailsthreeViewController: UIViewController {
                 // Handle the case when goal is not selected
                 return
             }
+        
+        
+        let db = Firestore.firestore()
+                let currentUser = Auth.auth().currentUser
+                let email = currentUser?.email
+        
+        let docRef = db.collection("user").document(email!)
+        let data: [String: Any] = [
+            "gender": selectedGender,
+            "age": selectedAge,
+            "height": selectedHeight,
+            "weight": selectedWeight,
+            "goal": selectedGoal
 
-            let db = Firestore.firestore()
-            let userCollection = db.collection("user")
+        ]
+                        docRef.setData(data) { error in
+                            if let error = error {
+                                // Handle the error
+                                print("Error writing document: \(error)")
+                            } else {
+                                // Data written successfully
+                                print("Document successfully written")
+                            }
+                        }
 
-            let data: [String: Any] = [
-                "gender": selectedGender,
-                "age": selectedAge,
-                "height": selectedHeight,
-                "weight": selectedWeight,
-                "goal": selectedGoal
-            ]
+//            let db = Firestore.firestore()
+//            let userCollection = db.collection("user")
 
-            userCollection.addDocument(data: data) { error in
-                if let error = error {
-                    print("Error saving data: \(error)")
-                } else {
-                    print("Data saved successfully!")
-                }
-            }
+//            let data: [String: Any] = [
+//                "gender": selectedGender,
+//                "age": selectedAge,
+//                "height": selectedHeight,
+//                "weight": selectedWeight,
+//                "goal": selectedGoal
+//
+//            ]
+//
+//            userCollection.addDocument(data: data) { error in
+//                if let error = error {
+//                    print("Error saving data: \(error)")
+//                } else {
+//                    print("Data saved successfully!")
+//                }
+//            }
         
         let nextScreen = TabController()
         navigationController?.pushViewController(nextScreen, animated: true)
