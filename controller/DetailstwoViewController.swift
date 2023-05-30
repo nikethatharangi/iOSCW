@@ -18,8 +18,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         private var selectedWeight: Int?
         private let heightPicker = UIPickerView()
         private let weightPicker = UIPickerView()
-//    private var heightPicker: UIPickerView!
-//    private var weightPicker: UIPickerView!
+
     
     init(gender: String, age: Int) {
            self.selectedGender = gender
@@ -103,18 +102,6 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         return agelabel
     }()
     
-//    let roundedView: UIView = {
-//        let view = UIView()
-//        view.layer.cornerRadius = 50
-//        view.backgroundColor = .systemFill
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.masksToBounds = false
-//        view.layer.shadowOffset = CGSize(width: -1, height: 1)
-//        //view.alpha = CGFloat(0.3)
-//        view.layer.shadowRadius = 5
-//        view.layer.shadowOpacity = 0.6
-//        return view
-//    }()
     
     let button : UIButton = {
         let button = UIButton()
@@ -219,7 +206,6 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         
         // Create and configure the number picker
-               // heightPicker = UIPickerView()
                 heightPicker.dataSource = self
                 heightPicker.delegate = self
         heightPicker.tintColor = .white
@@ -238,7 +224,6 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         
         // Create and configure the number picker
-              //  weightPicker = UIPickerView()
                 weightPicker.dataSource = self
                 weightPicker.delegate = self
         weightPicker.tintColor = .white
@@ -257,17 +242,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
         
     }
     
-    // MARK: - UIPickerViewDelegate
-
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return "\(numbers[row])" // Display number as row title
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        let selectedNumber = numbers[row]
-//        print("Selected number: \(selectedNumber)")
-//    }
-//    
+   
     @objc func gotonexAction(){
         guard let selectedHeight = selectedHeight, let selectedWeight = selectedWeight else {
                     // Handle the case when height or weight is not selected
@@ -281,19 +256,7 @@ class DetailstwoViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func setConstraints(){
         
-//        NSLayoutConstraint.activate([
-//            roundedView.widthAnchor
-//                            .constraint(equalTo: view.widthAnchor,
-//                                        multiplier: 0.9),
-//                        roundedView.heightAnchor
-//                            .constraint(equalTo: view.heightAnchor,
-//                                        multiplier: 0.5),
-//                        roundedView.centerXAnchor
-//                            .constraint(equalTo: view.centerXAnchor),
-//                        roundedView.centerYAnchor
-//                            .constraint(equalTo: view.centerYAnchor),
-//                ])
-                
+
         NSLayoutConstraint.activate([
                      button.topAnchor.constraint(equalTo: view.topAnchor, constant: 750),
                      button.leftAnchor

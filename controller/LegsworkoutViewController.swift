@@ -20,7 +20,7 @@ class LegsworkoutViewController: UIViewController {
         
         fetchExercises()
         addCardViews()
-        addBackgroundImage()
+       
     }
     
 func fetchExercises() {
@@ -47,14 +47,7 @@ func fetchExercises() {
 }
 
     
-    func addBackgroundImage() {
-        let backgroundImage = UIImageView(frame: view.bounds)
-        backgroundImage.image = UIImage(named: "exerciseback")
-        backgroundImage.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImage)
-        view.sendSubviewToBack(backgroundImage)
-    }
-
+  
 @objc func cardTapped(_ sender: UITapGestureRecognizer) {
         guard let cardView = sender.view else { return }
         guard let index = cardView.tag as Int? else { return }
@@ -83,16 +76,15 @@ func fetchExercises() {
         
         // Create a "Go" button
         let goButton = UIButton(type: .system)
-        goButton.setTitle("Go back", for: .normal)
+        goButton.setTitle("Back", for: .normal)
         goButton.setTitleColor(.white, for: .normal)
         goButton.backgroundColor = .black
         goButton.layer.cornerRadius = 20
         goButton.layer.borderColor = UIColor.magenta.cgColor
         goButton.layer.borderWidth = 1
-        goButton.frame = CGRect(x: 20.0, y: yPosition, width: contentWidth, height: 50.0)
+        goButton.frame = CGRect(x: 20.0, y: 30, width: 200, height: 40.0)
         goButton.addTarget(self, action: #selector(goButtonTapped), for: .touchUpInside)
         scrollView.addSubview(goButton)
-        yPosition += 70.0
         
         for (index, exercise) in exercises.enumerated() {
             let cardView = UIView(frame: CGRect(x: 20.0, y: yPosition, width: contentWidth, height: 200.0))
@@ -102,10 +94,7 @@ func fetchExercises() {
             cardView.layer.shadowRadius = 2.0
             cardView.layer.shadowOpacity = 0.2
             
-//                let titleIcon = UIImageView(image: UIImage(systemName: "circle.fill"))
-//                titleIcon.tintColor = .magenta
-//                titleIcon.frame = CGRect(x: 20.0, y: 25.0, width: 20.0, height: 20.0)
-//                cardView.addSubview(titleIcon)
+
             
             let nameLabel = UILabel(frame: CGRect(x: 50.0, y: 20.0, width: cardView.frame.width - 70.0, height: 30.0))
             nameLabel.text = exercise.name

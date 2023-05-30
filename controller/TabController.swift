@@ -30,14 +30,12 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
     }
    
     private func createNav(with title: String, and image: UIImage?, vc:UIViewController) -> UIViewController{
-        //let nav = UINavigationController(rootViewController: vc)
+        
         
         vc.tabBarItem.title = title
         vc.tabBarItem.image = image
         
-        //nav.viewControllers.first?.navigationItem.title = title + "Control"
-       // nav.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Button", style: .plain, target: nil, action: nil)
-        
+    
         return vc
     }
     

@@ -255,25 +255,7 @@ class DetailsthreeViewController: UIViewController {
                             }
                         }
 
-//            let db = Firestore.firestore()
-//            let userCollection = db.collection("user")
 
-//            let data: [String: Any] = [
-//                "gender": selectedGender,
-//                "age": selectedAge,
-//                "height": selectedHeight,
-//                "weight": selectedWeight,
-//                "goal": selectedGoal
-//
-//            ]
-//
-//            userCollection.addDocument(data: data) { error in
-//                if let error = error {
-//                    print("Error saving data: \(error)")
-//                } else {
-//                    print("Data saved successfully!")
-//                }
-//            }
         
         let nextScreen = TabController()
         navigationController?.pushViewController(nextScreen, animated: true)

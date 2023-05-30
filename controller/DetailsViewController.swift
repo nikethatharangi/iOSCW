@@ -27,17 +27,7 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     private var selectedGender: String?
     private var selectedAge: Int?
-   // var userEmail: String
-   
-    
-//    init(userEmail: String) {
-//           self.userEmail = email
-//           super.init(nibName: nil, bundle: nil)
-//       }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+ 
     
     let label : UILabel = {
         let label = UILabel()
@@ -84,19 +74,7 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return agelabel
     }()
     
-//    let roundedView: UIView = {
-//        let view = UIView()
-//        view.layer.cornerRadius = 50
-//        view.backgroundColor = .systemFill
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.masksToBounds = false
-//        view.layer.shadowOffset = CGSize(width: -1, height: 1)
-//        //view.alpha = CGFloat(0.3)
-//        view.layer.shadowRadius = 5
-//        view.layer.shadowOpacity = 0.6
-//        return view
-//    }()
-//
+
     let button : UIButton = {
         let button = UIButton()
         button.backgroundColor = .black
@@ -250,17 +228,6 @@ class DetailsViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
         
 
-//        // MARK: - UIPickerViewDelegate
-//
-//        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//            return "\(numbers[row])" // Display number as row title
-//        }
-//
-//        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//            let selectedNumber = numbers[row]
-//            print("Selected number: \(selectedNumber)")
-//        }
-//
     
     @objc func maleTapAction(_ sender: UIButton) {
 

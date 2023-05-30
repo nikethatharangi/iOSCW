@@ -12,8 +12,6 @@ class DashboardViewController: UIViewController {
            let view = UIView()
            view.layer.cornerRadius = 20
            view.backgroundColor = .systemFill
-        
-        //view.alpha = CGFloat(0.2)
            view.translatesAutoresizingMaskIntoConstraints = false
         
            return view
@@ -37,9 +35,6 @@ class DashboardViewController: UIViewController {
         let catoneroundedView = UIView()
         catoneroundedView.layer.cornerRadius = 25
         catoneroundedView.backgroundColor = .systemFill
-        //catoneroundedView.alpha = CGFloat(0.2)
-//        catoneroundedView.layer.borderColor = UIColor.white.cgColor
-//        catoneroundedView.layer.borderWidth = 1
         catoneroundedView.translatesAutoresizingMaskIntoConstraints = false
         
         return catoneroundedView
@@ -51,11 +46,6 @@ class DashboardViewController: UIViewController {
         let theImageView = UIImageView()
         theImageView.layer.cornerRadius = 50
         theImageView.image = UIImage(named: "dashboard.png")
-       // theImageView.layer.borderColor = UIColor.white.cgColor
-       // theImageView.layer.borderWidth = 1
- //       theImageView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-//        theImageView.isOpaque = false
-//        theImageView.alpha = CGFloat(0.5)
         theImageView.translatesAutoresizingMaskIntoConstraints = false
         return theImageView
     }()
@@ -64,25 +54,11 @@ class DashboardViewController: UIViewController {
         let theImageView = UIImageView()
         theImageView.layer.cornerRadius = 50
         theImageView.image = UIImage(named: "detailtwo.jpeg")
-       // theImageView.layer.borderColor = UIColor.white.cgColor
-       // theImageView.layer.borderWidth = 1
- //       theImageView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-//        theImageView.isOpaque = false
-//        theImageView.alpha = CGFloat(0.5)
         theImageView.translatesAutoresizingMaskIntoConstraints = false
         return theImageView
     }()
     
-//    var gradientLayer: CAGradientLayer = {
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.colors = [UIColor.black.cgColor,UIColor.magenta.cgColor]
-//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-//        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-//        gradientLayer.frame = CGRect.zero
-//       return gradientLayer
-//    }()
-    
-   
+
     let bmiLabel: UILabel = {
            let label = UILabel()
             label.text = "Get"
@@ -100,16 +76,7 @@ class DashboardViewController: UIViewController {
             label.font = UIFont(name: "ArialRoundedMTBold", size: 21)
            return label
        }()
-    
-//    let buttonLabel: UILabel = {
-//           let label = UILabel()
-//            label.text = "check"
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            label.textColor = UIColor.white
-//            label.font = UIFont(name: "ArialRoundedMTBold", size: 15)
-//           return label
-//       }()
-    
+
     let stayLabel: UILabel = {
            let label = UILabel()
             label.text = "Start"
@@ -173,39 +140,19 @@ class DashboardViewController: UIViewController {
         return label
     }()
    
-//    let categoryLabel : UILabel = {
-//        let label = UILabel()
-//        label.text = "Categories"
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textColor = UIColor.white
-//        label.font = UIFont(name: "ArialRoundedMTBold", size: 25)
-//        return label
-//    }()
-   
-//    private func setupScrollView() {
-//        let margins = view.layoutMarginsGuide
-//    }
-    
-    //scroll
-    
-   
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         view.backgroundColor = .black
-//        roundedView.addSubview(titleLabel)
-//        roundedView.layer.addSublayer(gradientLayer)
-//        gradientLayer.frame = roundedView.bounds
-        //view.addSubview(categoryLabel)
+
         view.addSubview(howLabel)
         view.addSubview(shapeLabel)
         view.addSubview(roundedView)
        
         view.addSubview(catoneroundedView)
-        //view.addSubview(categoryLabel)
-        //button.addSubview(checkLabel)
         someImageView.addSubview(bmiLabel)
         someImageView.addSubview(stayLabel)
         someImageView.addSubview(hiLabel)
@@ -346,15 +293,6 @@ class DashboardViewController: UIViewController {
                                     constant: 530)
                 ])
         
-//        NSLayoutConstraint.activate([
-//                    categoryLabel.leftAnchor
-//                        .constraint(equalTo: view.leftAnchor,
-//                                    constant: 30),
-//                    categoryLabel.topAnchor
-//                        .constraint(equalTo: view.topAnchor,
-//                                    constant: 400)
-//                ])
-
        
     }
     

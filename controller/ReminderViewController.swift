@@ -13,9 +13,7 @@ class ReminderViewController: UIViewController {
     let roundedView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 20
-        //view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     }()
     
@@ -23,9 +21,7 @@ class ReminderViewController: UIViewController {
         let catoneroundedView = UIView()
         catoneroundedView.layer.cornerRadius = 20
         catoneroundedView.backgroundColor = .systemFill
-       // catoneroundedView.alpha = CGFloat(0.2)
-//        catoneroundedView.layer.borderColor = UIColor.white.cgColor
-//        catoneroundedView.layer.borderWidth = 1
+
         catoneroundedView.translatesAutoresizingMaskIntoConstraints = false
         
         return catoneroundedView
@@ -62,15 +58,13 @@ class ReminderViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .systemFill
         button.layer.cornerRadius = 15
-//        button.isOpaque = false
-//        button.alpha = CGFloat(0.5)
+
         button.layer.borderColor = UIColor.magenta.cgColor
         button.layer.borderWidth = 2
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("+", for: .normal)
         button.addTarget(self, action: #selector(scheduleAction(_:)), for: .touchUpInside)
-        //button.tintColor = .white
-        //button.addTarget(self, action: #selector(gotonexAction), for: .touchUpInside)
+   
         return button
     }()
     
@@ -97,13 +91,9 @@ class ReminderViewController: UIViewController {
         return datePicker
     }()
 
-    //@IBOutlet var bodyField : UITextField!
-    //@IBOutlet var datePicker : UIDatePicker!
-
-
-    //var selectedDateTimeLabel: UILabel!
+  
     var reminderMessageLabel: UILabel!
-    //var reminderButton: UIButton!
+
     
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -111,13 +101,10 @@ class ReminderViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //view.addSubview(catoneroundedView)
+       
         
         view.backgroundColor = .black
-        //        roundedView.addSubview(titleLabel)
-        //        roundedView.layer.addSublayer(gradientLayer)
-        //        gradientLayer.frame = roundedView.bounds
+
         view.addSubview(categoryLabel)
         view.addSubview(howLabel)
         view.addSubview(remindLabel)

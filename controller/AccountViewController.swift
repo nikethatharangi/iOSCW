@@ -202,11 +202,7 @@ class AccountViewController: UIViewController {
         return label
     }()
     
-    //    private func setupScrollView() {
-    //        let margins = view.layoutMarginsGuide
-    //    }
-    
-    //scroll
+ 
     
     
     
@@ -218,9 +214,7 @@ class AccountViewController: UIViewController {
         view.addSubview(catthreeroundedView)
         
         view.backgroundColor = .black
-        //        roundedView.addSubview(titleLabel)
-        //        roundedView.layer.addSublayer(gradientLayer)
-        //        gradientLayer.frame = roundedView.bounds
+    
         view.addSubview(categoryLabel)
         view.addSubview(howLabel)
         view.addSubview(bottomroundedView)
@@ -277,41 +271,7 @@ class AccountViewController: UIViewController {
                 print("Document does not exist or there was an error: \(error?.localizedDescription ?? "Unknown error")")
             }
             
-            // Configure labels and add them to the view
-            //        let db = Firestore.firestore()
-            //        let userCollection = db.collection("user")
-            //
-            //        // Assuming you have the user's email
-            //        let userEmail = "user@example.com"
-            //
-            //        userCollection.whereField("email", isEqualTo: userEmail).getDocuments { [self] snapshot, error in
-            //            if let error = error {
-            //                print("Error fetching user data: \(error)")
-            //            } else {
-            //                for document in snapshot!.documents {
-            //                    let data = document.data()
-            //
-            //                    // Fetch and display the age, height, and weight
-            //                    if let age = data["age"] as? Int {
-            //                        self.agenumLabel.text = "\(age)"
-            //                    }
-            //
-            //                    if let height = data["height"] as? Int {
-            //                        self.heightnumLabel.text = "\(height) cm"
-            //                    }
-            //
-            //                    if let weight = data["weight"] as? Int {
-            //                        self.weightnumLabel.text = "\(weight) kg"
-            //                    }
-            //
-            //                    // Calculate and display the BMI
-            //                    if let height = data["height"] as? Int, let weight = data["weight"] as? Int {
-            //                        let bmi = calculateBMI(height: height, weight: weight)
-            //                        self.bminumLabel.text = "\(bmi)"
-            //                    }
-            //                }
-            //            }
-            //        }
+         
         }
         
         func calculateBMI(height: Int, weight: Int) -> Float {

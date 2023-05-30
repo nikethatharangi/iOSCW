@@ -21,7 +21,7 @@ class ExerciseListViewController: UIViewController {
             
             fetchExercises()
             addCardViews()
-            addBackgroundImage()
+           
         }
         
     func fetchExercises() {
@@ -47,14 +47,7 @@ class ExerciseListViewController: UIViewController {
         }
     }
   
-        
-        func addBackgroundImage() {
-            let backgroundImage = UIImageView(frame: view.bounds)
-            backgroundImage.image = UIImage(named: "exerciseback")
-            backgroundImage.contentMode = .scaleAspectFill
-            view.addSubview(backgroundImage)
-            view.sendSubviewToBack(backgroundImage)
-        }
+       
     
     @objc func cardTapped(_ sender: UITapGestureRecognizer) {
             guard let cardView = sender.view else { return }
@@ -84,16 +77,16 @@ class ExerciseListViewController: UIViewController {
             
             // Create a "Go" button
             let goButton = UIButton(type: .system)
-            goButton.setTitle("Go back", for: .normal)
+            goButton.setTitle("Back", for: .normal)
             goButton.setTitleColor(.white, for: .normal)
             goButton.backgroundColor = .black
             goButton.layer.cornerRadius = 20
             goButton.layer.borderColor = UIColor.magenta.cgColor
             goButton.layer.borderWidth = 1
-            goButton.frame = CGRect(x: 20.0, y: yPosition, width: contentWidth, height: 50.0)
+            goButton.frame = CGRect(x: 20.0, y: 30, width: 200, height: 40.0)
             goButton.addTarget(self, action: #selector(goButtonTapped), for: .touchUpInside)
             scrollView.addSubview(goButton)
-            yPosition += 70.0
+            //yPosition += 10.0
             
             for (index, exercise) in exercises.enumerated() {
                 let cardView = UIView(frame: CGRect(x: 20.0, y: yPosition, width: contentWidth, height: 200.0))
@@ -103,10 +96,7 @@ class ExerciseListViewController: UIViewController {
                 cardView.layer.shadowRadius = 2.0
                 cardView.layer.shadowOpacity = 0.2
                 
-//                let titleIcon = UIImageView(image: UIImage(systemName: "circle.fill"))
-//                titleIcon.tintColor = .magenta
-//                titleIcon.frame = CGRect(x: 20.0, y: 25.0, width: 20.0, height: 20.0)
-//                cardView.addSubview(titleIcon)
+
                 
                 let nameLabel = UILabel(frame: CGRect(x: 50.0, y: 20.0, width: cardView.frame.width - 70.0, height: 30.0))
                 nameLabel.text = exercise.name
@@ -284,11 +274,11 @@ class ExerciseDetailsViewController: UIViewController {
         ])
         
         // Set up the "Go Back" button
-        goBackButton.setTitle("Go Back", for: .normal)
+        goBackButton.setTitle("Back", for: .normal)
         goBackButton.setTitleColor(UIColor.white, for: .normal)
         goBackButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         goBackButton.backgroundColor = UIColor.black
-        goBackButton.layer.cornerRadius = 8
+        goBackButton.layer.cornerRadius = 20
         goBackButton.layer.borderWidth = 1
         goBackButton.layer.borderColor = UIColor.magenta.cgColor
         goBackButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
@@ -299,7 +289,7 @@ class ExerciseDetailsViewController: UIViewController {
         NSLayoutConstraint.activate([
             goBackButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             goBackButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goBackButton.heightAnchor.constraint(equalToConstant: 50),
+            goBackButton.heightAnchor.constraint(equalToConstant: 40),
             goBackButton.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
